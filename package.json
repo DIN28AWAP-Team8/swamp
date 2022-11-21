@@ -47,5 +47,8 @@
   "bugs": {
     "url": "https://github.com/DIN28AWAP-Team8/swamp/issues"
   },
-  "homepage": "https://github.com/DIN28AWAP-Team8/swamp#readme"
+  "homepage": "https://github.com/DIN28AWAP-Team8/swamp#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
