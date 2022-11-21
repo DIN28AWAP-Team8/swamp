@@ -2,7 +2,7 @@ import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const URL = 'http://10ca1host:3001/'
+const URL = 'http://localhost:3001/'
 
 function App() {
   const [message, setMessage] = useState('test')
@@ -21,3 +21,5 @@ function App() {
     <p>{message}</p>
   );
 }
+  
+export default App;
