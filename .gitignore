@@ -24,4 +24,4 @@ yarn-error.log*
 
 
 # custom 
-config.js
+db.config.js

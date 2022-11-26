@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+MERGE : Integrated backend to frontend.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To run the project : 
+-- launch XAMPP
+-- in phpmyadmin create a new DB : "testdb" and that's it,
+-- in the project : npm install
+-- (*) ERROR when Signing Up BUT : you will be able to Sign In with the account you just created, working on this issue  
 
-## Available Scripts
+Frontend changes : 
+- added an .env file which store the running port of the client (8081), it helps avoid a potential CORS problem
+- minor corrections made in the Admin and Moderator components 
 
-In the project directory, you can run:
+Backend :
+- Uses : Express / bcryptjs / jsonwebtoken / Sequelize / MySQL libraries
+- On the website of "Network Error", you have now the title of the page you're on : "Public Content" / "User content", etc. 
+- On the website you can see your profile when clicking on the profile button with different informations.
+- Token authentification works! when logged in you can see it in your profile page OR in the browser developper tools : >right click>inspect>storage>local storage.
+- The user is prohibited to create a new account that use a username or an email that is already in the DB.
+- The user can't access "http://localhost:8081/mod" or "http://localhost:8081/admin" without having the required privileges. You can modify the privileges in the DB. 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+for detailed explanations : https://www.bezkoder.com/node-js-jwt-authentication-mysql/
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+(*) : "Cannot add or update a child row: a foreign key constraint fails (`testdb`.`user_roles`, CONSTRAINT `user_roles_ibfk_1` FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)" 
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Node.js – JWT Authentication & Authorization example with JSONWebToken & Sequelize
 
-### `npm run build`
+## User Registration, User Login and Authorization process.
+The diagram shows flow of how we implement User Registration, User Login and Authorization process.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![jwt-token-authentication-node-js-example-flow](jwt-token-authentication-node-js-example-flow.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+For more detail, please visit:
+> [Node.js JWT Authentication & Authorization example](https://bezkoder.com/node-js-jwt-authentication-mysql/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You may need to implement Refresh Token:
 
-### `npm run eject`
+![jwt-refresh-token-node-js-example-flow](jwt-refresh-token-node-js-example-flow.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> [Node.js JWT Refresh Token example](https://bezkoder.com/jwt-refresh-token-node-js/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Working with Front-end:
+> [Vue](https://www.bezkoder.com/jwt-vue-vuex-authentication/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+> [Angular 8](https://www.bezkoder.com/angular-jwt-authentication/) / [Angular 10](https://www.bezkoder.com/angular-10-jwt-auth/) / [Angular 11](https://www.bezkoder.com/angular-11-jwt-auth/) / [Angular 12](https://www.bezkoder.com/angular-12-jwt-auth/) / [Angular 13](https://www.bezkoder.com/angular-13-jwt-auth/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> [React](https://www.bezkoder.com/react-jwt-auth/) / [React + Redux](https://www.bezkoder.com/react-redux-jwt-auth/)
 
-## Learn More
+## More Practice:
+> [Build Node.js Rest APIs with Express, Sequelize & MySQL](https://bezkoder.com/node-js-express-sequelize-mysql/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> [Server side Pagination in Node.js with Sequelize and MySQL](https://bezkoder.com/node-js-sequelize-pagination-mysql/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> [Node.js Express File Upload Rest API example](https://bezkoder.com/node-js-express-file-upload/)
 
-### Code Splitting
+> [Node.js Express File Upload with Google Cloud Storage example](https://bezkoder.com/google-cloud-storage-nodejs-upload-file/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+> [Node.js JWT Authentication & Authorization example with MongoDB](https://bezkoder.com/node-js-mongodb-auth-jwt/)
 
-### Analyzing the Bundle Size
+Associations:
+> [Sequelize Associations: One-to-Many Relationship example](https://bezkoder.com/sequelize-associate-one-to-many/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+> [Sequelize Associations: Many-to-Many Relationship example](https://bezkoder.com/sequelize-associate-many-to-many/)
 
-### Making a Progressive Web App
+Deployment:
+> [Deploying/Hosting Node.js app on Heroku with MySQL database](https://bezkoder.com/deploy-node-js-app-heroku-cleardb-mysql/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Integration on same Server/Port:
+> [Integrate Vue with Node.js Express](https://www.bezkoder.com/serve-vue-app-express/)
 
-### Advanced Configuration
+> [Integrate Angular 8 with Node.js Express](https://www.bezkoder.com/integrate-angular-8-node-js/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+> [Integrate Angular 10 with Node.js Express](https://www.bezkoder.com/integrate-angular-10-node-js/)
 
-### Deployment
+> [Integrate Angular 12 with Node.js Express](https://www.bezkoder.com/integrate-angular-12-node-js/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+> [Integrate React with Node.js Express](https://www.bezkoder.com/integrate-react-express-same-server-port/)
 
-### `npm run build` fails to minify
+## Project setup
+```
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Run
+```
+node server.js
+```
