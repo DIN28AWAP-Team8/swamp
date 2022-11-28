@@ -19,7 +19,7 @@ const Role = db.role;
 db.sequelize.sync();
 
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to Shrek application." });
+  res.json({ message: "Welcome to the project application." });
 });
 
 require("./routes/auth.routes")(app);
