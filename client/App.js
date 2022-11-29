@@ -1,3 +1,7 @@
+// https://www.bezkoder.com/react-jwt-auth/
+
+// – The App component is a container with React Router (BrowserRouter). Basing on the state, the navbar can display its items.
+
 import React, { Component } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";

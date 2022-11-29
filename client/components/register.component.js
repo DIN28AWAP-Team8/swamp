@@ -1,3 +1,5 @@
+// Login & Register components have form for data submission (with support of react-validation library). They call methods from auth.service to make login/register request.
+
 import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";

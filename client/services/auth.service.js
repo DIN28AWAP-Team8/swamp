@@ -1,3 +1,5 @@
+// auth.service methods use axios to make HTTP requests. Its also store or get JWT from Browser Local Storage inside these methods
+
 import axios from "axios";
 
 const API_URL = "http://localhost:8080/api/auth/";

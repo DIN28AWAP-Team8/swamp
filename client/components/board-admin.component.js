@@ -1,3 +1,5 @@
+// BoardUser, BoardModerator, BoardAdmin components will be displayed by state user.roles. In these components, we use user.service to access protected resources from Web API.
+
 import React, { Component } from "react";
 
 import UserService from "../services/user.service";

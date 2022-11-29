@@ -1,3 +1,5 @@
+// Home component is public for all visitor
+
 import React, { Component } from "react";
 
 import UserService from "../services/user.service";
