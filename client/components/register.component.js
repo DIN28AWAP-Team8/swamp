@@ -1,10 +1,18 @@
-// Login & Register components have form for data submission (with support of react-validation library). They call methods from auth.service to make login/register request.
+// Login & Register components have form for data submission (with support of react-validation library). 
+// They call methods from auth.service to make login/register request.
+
+// This page is similar to Login Page. For Form Validation, there are some more details:
+// - username: required, between 3 and 20 characters
+// - email: required, email format
+// - password: required, between 6 and 40 characters
+// We’re going to call AuthService.register() method and show response message (successful or error).
 
 import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
+// isEmail() is a function from validator to verify email.
 
 import AuthService from "../services/auth.service";
 
@@ -92,6 +100,7 @@ export default class Register extends Component {
     });
 
     this.form.validateAll();
+    // We’re calling Form validateAll() method to check validation functions in validations
 
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.register(
@@ -197,6 +206,7 @@ export default class Register extends Component {
               </div>
             )}
             <CheckButton
+            // CheckButton helps us to verify if the form validation is successful or not. So this button will not display on the form.
               style={{ display: "none" }}
               ref={(c) => {
                 this.checkBtn = c;

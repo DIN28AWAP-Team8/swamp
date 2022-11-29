@@ -1,4 +1,9 @@
-// Login & Register components have form for data submission (with support of react-validation library). They call methods from auth.service to make login/register request.
+// Login & Register components have form for data submission (with support of react-validation library). 
+// They call methods from auth.service to make login/register request.
+
+// This page has a Form with username & password.
+// – We’re going to verify them as required field.
+// – If the verification is ok, we call AuthService.login() method, then direct user to Profile page: this.props.router.navigate("/profile");, or show message with response error.
 
 import React, { Component } from "react";
 import Form from "react-validation/build/form";

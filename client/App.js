@@ -1,5 +1,3 @@
-// https://www.bezkoder.com/react-jwt-auth/
-
 // – The App component is a container with React Router (BrowserRouter). Basing on the state, the navbar can display its items.
 
 import React, { Component } from "react";
@@ -49,6 +47,13 @@ class App extends Component {
       currentUser: undefined,
     });
   }
+
+  // The following navbar dynamically changes by login status and current User’s roles.
+  //   - Home: always
+  //   - Login & Sign Up: if user hasn’t signed in yet
+  //   - User: AuthService.getCurrentUser() returns a value
+  //   - Board Moderator: roles includes ROLE_MODERATOR
+  //   - Board Admin: roles includes ROLE_ADMIN
 
   render() {
     const { currentUser, showModeratorBoard, showAdminBoard } = this.state;

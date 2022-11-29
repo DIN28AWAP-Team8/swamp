@@ -1,5 +1,8 @@
 // Profile component displays user information after the login action is successful.
 
+// This page gets current User from Local Storage by calling AuthService.getCurrentUser() method and show user information (with token).
+// If the user is not logged in, redirect to /home page
+
 import React, { Component } from "react";
 import { Navigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
