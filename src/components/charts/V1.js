@@ -11,7 +11,9 @@ export default function V1Chart() {
     const [annuallyDataGlobal, setAnnuallyDataGlobal] = useState([]);
     const [annuallyDataNorthern, setAnnuallyDataNorthern] = useState([]);
     const [annuallyDataSouthern, setAnnuallyDataSouthern] = useState([]);
-    const [monthlyData, setMonthlyData] = useState([]);
+    const [monthlyDataGlobal, setMonthlyDataGlobal] = useState([]);
+    const [monthlyDataNorthern, setMonthlyDataNorthern] = useState([]);
+    const [monthlyDataSouthern, setMonthlyDataSouthern] = useState([]);
 
     useEffect(() => {
         axios
@@ -38,13 +40,27 @@ export default function V1Chart() {
             .catch((error) => {
                 console.error(error);
             });
-    }, []);
 
-    useEffect(() => {
         axios
             .get(URL + "monthly_global")
             .then(response => {
-                setMonthlyData(response.data);
+                setMonthlyDataGlobal(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        axios
+            .get(URL + "monthly_northern")
+            .then(response => {
+                setMonthlyDataNorthern(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        axios
+            .get(URL + "monthly_southern")
+            .then(response => {
+                setMonthlyDataSouthern(response.data);
             })
             .catch((error) => {
                 console.error(error);
@@ -52,21 +68,66 @@ export default function V1Chart() {
     }, []);
 
     const data = {
-        labels: annuallyDataGlobal.map(datapoint => datapoint.Date),
+        labels: monthlyDataGlobal.map(datapoint => datapoint.Date),
         datasets: [
             {
                 label: "Annually Global",
-                data: annuallyDataGlobal.map(datapoint => datapoint.Anomaly),
+                data: annuallyDataGlobal,
+                yAxisID: "Anomaly",
+                parsing: {
+                    xAxisKey: "Date",
+                    yAxisKey: "Anomaly",
+                },
+                pointRadius: 1
+            },
+            {
+                label: "Annually Northern Hemisphere",
+                data: annuallyDataNorthern,
+                yAxisID: "Anomaly",
+                parsing: {
+                    xAxisKey: "Date",
+                    yAxisKey: "Anomaly",
+                },
+                pointRadius: 1
+            },
+            {
+                label: "Annually Southern Hemisphere",
+                data: annuallyDataSouthern,
+                yAxisID: "Anomaly",
+                parsing: {
+                    xAxisKey: "Date",
+                    yAxisKey: "Anomaly",
+                },
                 pointRadius: 1
             },
             {
                 label: "Monthly Global",
-                data: annuallyDataNorthern.map(datapoint => datapoint.Anomaly),
+                data: monthlyDataGlobal,
+                yAxisID: "Anomaly",
+                parsing: {
+                    xAxisKey: "Date",
+                    yAxisKey: "Anomaly",
+                },
                 pointRadius: 1
             },
             {
-                label: "Monthly Global",
-                data: annuallyDataSouthern.map(datapoint => datapoint.Anomaly),
+                label: "Monthly Northern Hemisphere",
+                data: monthlyDataNorthern,
+                yAxisID: "Anomaly",
+                parsing: {
+                    xAxisKey: "Date",
+                    yAxisKey: "Anomaly",
+                },
+                pointRadius: 1
+            },
+            {
+                label: "Monthly Southern Hemisphere",
+                data: monthlyDataSouthern,
+                yAxisID: "Anomaly",
+                parsing: {
+                    xAxisKey: "Date",
+                    yAxisKey: "Anomaly",
+                },
                 pointRadius: 1
             }
         ],
@@ -80,11 +141,19 @@ export default function V1Chart() {
             },
             title: {
                 display: true,
-                text: "Demo V1 Chart",
+                text: "V1: HadCRUT 5"
             },
+            subtitle: {
+                display: true,
+                text: 'global historical surface temperature anomalies from January 1850 onwards'
+            },
+            legend: {
+                display: true,
+                position: "bottom"
+            }
         },
         scales: {
-            co2: {
+            Anomaly: {
                 type: "linear",
                 display: true,
                 position: "right",
@@ -94,8 +163,10 @@ export default function V1Chart() {
 
     return (
         <div style={{ width: "1000px" }}>
-            <h1>Demo Chart</h1>
+            <h1></h1>
             <Line options={options} data={data} />
+            <p>HadCRUT5 is a gridded dataset of global historical surface temperature anomalies relative to a 1961-1990 reference period. Data are available for each month from January 1850 onwards, on a 5 degree grid and as global and regional average time series. The dataset is a collaborative product of the Met Office Hadley Centre and the Climatic Research Unit at the University of East Anglia.</p>
+            <p>Source: <a href="https://www.metoffice.gov.uk/hadobs/hadcrut5/">metoffice.gov.uk</a></p>
         </div>
     );
 

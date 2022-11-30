@@ -55,52 +55,72 @@ function initial() {
  * APIs to list and retrieve available data sets
  */
 
- app.get("/data", async function (req, res) {
+app.get("/data", async function (req, res) {
   try {
-      const [result,] = await db.sequelize.query(prepared_queries.data_set.list);
-      if (!result) result = [];
-      res.status(200).json(result);
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.list);
+    if (!result) result = [];
+    res.status(200).json(result);
   } catch (error) {
-      res.status(500).json({message: error.message});
+    res.status(500).json({ message: error.message });
   }
 });
 
 app.get("/data/v1/annually_global", async function (req, res) {
   try {
-      const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.annually_global);
-      if (!result) result = [];
-      res.status(200).json(result);
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.annually_global);
+    if (!result) result = [];
+    res.status(200).json(result);
   } catch (error) {
-      res.status(500).json({message: error.message});
+    res.status(500).json({ message: error.message });
   }
 });
 
 app.get("/data/v1/annually_northern", async function (req, res) {
   try {
-      const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.annually_northern_hemisphere);
-      if (!result) result = [];
-      res.status(200).json(result);
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.annually_northern_hemisphere);
+    if (!result) result = [];
+    res.status(200).json(result);
   } catch (error) {
-      res.status(500).json({message: error.message});
+    res.status(500).json({ message: error.message });
   }
 });
 
 app.get("/data/v1/annually_southern", async function (req, res) {
   try {
-      const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.annually_southern_hemisphere);
-      if (!result) result = [];
-      res.status(200).json(result);
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.annually_southern_hemisphere);
+    if (!result) result = [];
+    res.status(200).json(result);
   } catch (error) {
-      res.status(500).json({message: error.message});
+    res.status(500).json({ message: error.message });
   }
 });
 
 app.get("/data/v1/monthly_global", async function (req, res) {
   try {
-      const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.monthly_global);
-      if (!result) result = [];
-      res.status(200).json(result);
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.monthly_global);
+    if (!result) result = [];
+    res.status(200).json(result);
   } catch (error) {
-      res.status(500).json({message: error.message});
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/data/v1/monthly_northern", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.monthly_northern_hemisphere);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/data/v1/monthly_southern", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.monthly_southern_hemisphere);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
