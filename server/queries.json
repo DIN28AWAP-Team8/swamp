@@ -1,0 +1,34 @@
+{
+    "data_set": {
+        "list": "SELECT * FROM data_set",
+        "v1": {
+            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V1",
+            "annually_global": "SELECT * FROM v1_hadcrut5_anually_global",
+            "annually_northern_hemisphere": "SELECT * FROM v1_hadcrut5_anually_northern_hemisphere",
+            "annually_southern_hemisphere": "SELECT * FROM v1_hadcrut5_anually_southern_hemisphere",
+            "monthly_global": "SELECT * FROM v1_hadcrut5_monthly_global",
+            "monthly_northern_hemisphere": "SELECT * FROM v1_hadcrut5_monthly_northern_hemisphere",
+            "monthly_southern_hemisphere": "SELECT * FROM v1_hadcrut5_monthly_southern_hemisphere"
+        },
+        "v2": {
+            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V2",
+            "northern_hemisphere_temperature_reconstruction": "SELECT * FROM v2_northern_hemisphere_temperature_reconstruction"
+        },
+        "v3": {
+            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V3",
+            "annually_mean": "SELECT * FROM v3_annually_mean",
+            "monthly_mean": "SELECT * FROM v3_monthly_mean"
+        },
+        "v4": {
+            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V4",
+            "de08": "SELECT * FROM v4_de08",
+            "de08_02": "SELECT * FROM v4_de08_02",
+            "dss": "SELECT * FROM v4_dss"
+        }
+    },
+    "user": {
+        "mail_exists": "SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM user WHERE Mail = ?) THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END",
+        "user_name_exists": "SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM user WHERE User_Name = ?) THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END",
+        "create_user": "INSERT INTO user(User_ID, User_Name, Password_Hash, Mail, Firstname, Lastname) VALUES (?, ?, ?, ?, ?, ?)"
+    }
+}
