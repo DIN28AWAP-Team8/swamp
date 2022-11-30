@@ -134,3 +134,123 @@ app.get("/data/v2/temperature_reconstruction", async function (req, res) {
     res.status(500).json({ message: error.message });
   }
 });
+
+app.get("/data/v3/annually_mean", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v3.annually_mean);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/data/v3/monthly_mean", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v3.monthly_mean);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/data/v4/de08", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v4.de08);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/data/v4/de08_2", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v4.de08_02);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/data/v4/dss", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v4.dss);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/data/v5/vostok_ice_core_co2", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v5.vostok_ice_core_co2);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/data/v6/ice_core_co2", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v6.ice_core_co2);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/data/v7/co2_measurements", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v7.co2_measurements);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/data/v7/temperature_records", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v7.temperature_records);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/data/v8/emissions_transfers", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v8.emissions_transfers);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/data/v8/territorial_emissions", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v8.territorial_emissions);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/data/v8/consumption_emissions", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v8.consumption_emissions);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});

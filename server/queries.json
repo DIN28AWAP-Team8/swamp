@@ -22,8 +22,27 @@
         "v4": {
             "list": "SELECT * FROM data_set WHERE Data_Set_Group = V4",
             "de08": "SELECT * FROM v4_de08",
-            "de08_02": "SELECT * FROM v4_de08_02",
+            "de08_02": "SELECT * FROM v4_de08_2",
             "dss": "SELECT * FROM v4_dss"
+        },
+        "v5": {
+            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V5",
+            "vostok_ice_core_co2": "SELECT * FROM v5_vostok_ice_core_co2"
+        },
+        "v6": {
+            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V6",
+            "ice_core_co2": "SELECT * FROM v6_ice_core_co2"
+        },
+        "v7": {
+            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V7",
+            "co2_measurements": "SELECT * FROM v7_co2_measurements",
+            "temperature_records": "SELECT * FROM v7_temperature_records"
+        },
+        "v8": {
+            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V8",
+            "consumption_emissions": "SELECT * FROM v8_consumption_emissions",
+            "emissions_transfers": "SELECT * FROM v8_emissions_transfers",
+            "territorial_emissions": "SELECT * FROM v8_territorial_emissions"
         }
     },
     "user": {

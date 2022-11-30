@@ -212,6 +212,7 @@ export default function V1V2Chart() {
             <ul>
                 <li><a href="https://www.metoffice.gov.uk/hadobs/hadcrut5/">HadCRUT5 description and data set</a></li>
                 <li><a href="https://bolin.su.se/data/moberg-2012-nh-1?n=moberg-2005">temperature reconstruction description</a></li>
+                <li><a href="https://www.nature.com/articles/nature03265">temperature reconstruction description of data measurement</a></li>
                 <li><a href="https://www.ncei.noaa.gov/pub/data/paleo/contributions_by_author/moberg2005/nhtemp-moberg2005.txt">temperature reconstruction data set</a></li>
             </ul>
         </div>
