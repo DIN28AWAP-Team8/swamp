@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 
 import UserService from "../services/user.service";
-import V1Chart from "./charts/V1";
+import V1V2Chart from "./charts/V1-V2";
 
 export default class Home extends Component {
   constructor(props) {
@@ -38,7 +38,7 @@ export default class Home extends Component {
         <header className="jumbotron">
           <h3>{this.state.content}</h3>
           /* TODO: temporary, please remove */
-          <div><V1Chart /></div>
+          <div><V1V2Chart /></div>
         </header>
       </div>
     );

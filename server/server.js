@@ -124,3 +124,13 @@ app.get("/data/v1/monthly_southern", async function (req, res) {
     res.status(500).json({ message: error.message });
   }
 });
+
+app.get("/data/v2/temperature_reconstruction", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v2.northern_hemisphere_temperature_reconstruction);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
