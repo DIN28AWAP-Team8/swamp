@@ -27,7 +27,6 @@ export default function V5() {
             {
                 label: "CO2 Measurements",
                 data: v5Data,
-                yAxisID: "Value",
                 parsing: {
                     xAxisKey: "Mean_Air_Age",
                     yAxisKey: "Co2_Concentration",
@@ -55,9 +54,23 @@ export default function V5() {
             legend: {
                 display: true,
                 position: "bottom"
+            }
+        },
+        scales: {
+            x: {
+                type: "linear",
+                reverse: true,
+                title: {
+                    display: true,
+                    text: 'years before present'
+                }
             },
-            scales: {
-                type: "linear"
+            y: {
+                display: true,
+                title: {
+                    display: true,
+                    text: 'CO2 concentration in ppmv'
+                }
             }
         }
     };

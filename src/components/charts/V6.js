@@ -27,7 +27,6 @@ export default function V6() {
             {
                 label: "CO2 Measurements",
                 data: v6Data,
-                yAxisID: "Value",
                 parsing: {
                     xAxisKey: "Gas_Age",
                     yAxisKey: "Co2_Concentration",
@@ -56,9 +55,22 @@ export default function V6() {
                 display: true,
                 position: "bottom"
             },
-            scales: {
-                x: {
-                    type: "linear"
+            
+        },
+        scales: {
+            x: {
+                type: "linear",
+                reverse: true,
+                title: {
+                    display: true,
+                    text: 'years before present'
+                }
+            },
+            y: {
+                display: true,
+                title: {
+                    display: true,
+                    text: 'CO2 concentration in ppm'
                 }
             }
         }

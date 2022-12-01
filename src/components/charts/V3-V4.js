@@ -64,7 +64,6 @@ export default function V3V4() {
             {
                 label: "Annual CO2 Measurements",
                 data: v3Annually,
-                yAxisID: "Value",
                 parsing: {
                     xAxisKey: "Date",
                     yAxisKey: "Annual_Mean",
@@ -74,7 +73,6 @@ export default function V3V4() {
             {
                 label: "Monthly CO2 Measurements",
                 data: v3Monthly,
-                yAxisID: "Value",
                 parsing: {
                     xAxisKey: "Date",
                     yAxisKey: "Average",
@@ -84,7 +82,6 @@ export default function V3V4() {
             {
                 label: "Ice Core DE08 Measurements",
                 data: v4DE08,
-                yAxisID: "Value",
                 parsing: {
                     xAxisKey: "Mean_Air_Age",
                     yAxisKey: "Co2_Mixing_Ratio",
@@ -94,7 +91,6 @@ export default function V3V4() {
             {
                 label: "Ice Core DE08-02 Measurements",
                 data: v4DE08_2,
-                yAxisID: "Value",
                 parsing: {
                     xAxisKey: "Mean_Air_Age",
                     yAxisKey: "Co2_Mixing_Ratio",
@@ -104,7 +100,6 @@ export default function V3V4() {
             {
                 label: "Ice Core DSS Measurements",
                 data: v4DSS,
-                yAxisID: "Value",
                 parsing: {
                     xAxisKey: "Mean_Air_Age",
                     yAxisKey: "Co2_Mixing_Ratio",
@@ -140,6 +135,13 @@ export default function V3V4() {
                 time: {
                     unit: "month",
                 },
+            },
+            y: {
+                display: true,
+                title: {
+                    display: true,
+                    text: 'CO2 concentration in ppm'
+                }
             }
         },
     };

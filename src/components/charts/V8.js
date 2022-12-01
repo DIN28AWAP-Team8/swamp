@@ -13,7 +13,7 @@ export default function V8() {
 
     useEffect(() => {
         axios
-            .get(URL + "v8/consumption_emissions")
+            .get(URL + "v8/territorial_emissions")
             .then(response => {
                 setV8Data(response.data);
             })
@@ -67,6 +67,10 @@ export default function V8() {
                 type: "time",
                 time: {
                     unit: "year",
+                },
+                title: {
+                    display: true,
+                    text: 'year CE'
                 }
             },
             y: {

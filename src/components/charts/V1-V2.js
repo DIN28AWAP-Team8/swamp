@@ -83,7 +83,6 @@ export default function V1V2Chart() {
             {
                 label: "Annually Global",
                 data: annuallyDataGlobal,
-                yAxisID: "Value",
                 parsing: {
                     xAxisKey: "Date",
                     yAxisKey: "Anomaly",
@@ -93,7 +92,6 @@ export default function V1V2Chart() {
             {
                 label: "Annually Northern Hemisphere",
                 data: annuallyDataNorthern,
-                yAxisID: "Value",
                 parsing: {
                     xAxisKey: "Date",
                     yAxisKey: "Anomaly",
@@ -103,7 +101,6 @@ export default function V1V2Chart() {
             {
                 label: "Annually Southern Hemisphere",
                 data: annuallyDataSouthern,
-                yAxisID: "Value",
                 parsing: {
                     xAxisKey: "Date",
                     yAxisKey: "Anomaly",
@@ -113,7 +110,6 @@ export default function V1V2Chart() {
             {
                 label: "Monthly Global",
                 data: monthlyDataGlobal,
-                yAxisID: "Value",
                 parsing: {
                     xAxisKey: "Date",
                     yAxisKey: "Anomaly",
@@ -123,7 +119,6 @@ export default function V1V2Chart() {
             {
                 label: "Monthly Northern Hemisphere",
                 data: monthlyDataNorthern,
-                yAxisID: "Value",
                 parsing: {
                     xAxisKey: "Date",
                     yAxisKey: "Anomaly",
@@ -133,7 +128,6 @@ export default function V1V2Chart() {
             {
                 label: "Monthly Southern Hemisphere",
                 data: monthlyDataSouthern,
-                yAxisID: "Value",
                 parsing: {
                     xAxisKey: "Date",
                     yAxisKey: "Anomaly",
@@ -143,7 +137,6 @@ export default function V1V2Chart() {
             {
                 label: "2000-year temperature  reconstruction",
                 data: temperatureReconstructionData,
-                yAxisID: "Value",
                 parsing: {
                     xAxisKey: "Date",
                     yAxisKey: "Full_Reconstruction",
@@ -180,6 +173,13 @@ export default function V1V2Chart() {
                     unit: "month",
                 },
             },
+            y: {
+                display: true,
+                title: {
+                    display: true,
+                    text: 'temperature anomalies in °C / K'
+                }
+            }
             /* distinguish Y-Axes and show titles (requires setting of yAxisID) */
             /*
             Anomaly: {
