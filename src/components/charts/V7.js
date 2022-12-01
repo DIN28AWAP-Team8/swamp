@@ -82,7 +82,7 @@ export default function V7Chart() {
             },
             Temperature: {
                 display: true,
-                position: "left",
+                position: "right",
                 title: {
                     display: true,
                     text: '50% change in global average surface temperature from present'
@@ -90,10 +90,10 @@ export default function V7Chart() {
             },
             CO2: {
                 display: true,
-                position: "right",
+                position: "left",
                 title: {
                     display: true,
-                    text: 'carbon dioxide in ppm'
+                    text: 'CO2 concentration in ppm'
                 }
             }
         },
