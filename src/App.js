@@ -14,6 +14,10 @@ import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
+import N1 from "./components/chart-N1.component";
+import N2 from "./components/chart-N2.component";
+
+import { AiOutlinePlusCircle } from "react-icons/ai";
 
 class App extends Component {
   constructor(props) {
@@ -96,16 +100,36 @@ class App extends Component {
             )}
           </div>
 
+          <div className="navbar-nav nav-shortcuts">
+            <Link to={"/N1"} className="nav-link nav-shortcut">
+              Athmospheric co2 and temperatures
+            </Link>
+            <Link to={"/N2"} className="nav-link nav-shortcut">
+              Emission sources
+            </Link>
+          </div>
+
           {currentUser ? (
             <div className="navbar-nav ml-auto">
+              <li>
+                {/* Add component used to create visualizations */}
+                <Link to={"/"} className="nav-link nav-ico">
+                  <AiOutlinePlusCircle />
+                </Link>
+              </li>
               <li className="nav-item">
                 <Link to={"/profile"} className="nav-link">
                   {currentUser.username}
                 </Link>
               </li>
+
               <li className="nav-item">
-                <a href="/login" className="nav-link" onClick={this.logOut}>
-                  LogOut
+                <a
+                  href="/login"
+                  className="nav-link logout"
+                  onClick={this.logOut}
+                >
+                  Logout
                 </a>
               </li>
             </div>
@@ -136,6 +160,8 @@ class App extends Component {
             <Route path="/user" element={<BoardUser />} />
             <Route path="/mod" element={<BoardModerator />} />
             <Route path="/admin" element={<BoardAdmin />} />
+            <Route path="/N1" element={<N1 />} />
+            <Route path="/N2" element={<N2 />} />
           </Routes>
         </div>
       </div>

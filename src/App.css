@@ -30,3 +30,18 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+.nav-shortcuts {
+  text-align: center;
+}
+
+.nav-shortcut {
+  border: 2px solid #7e8286;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.logout{
+  color: red;
+}
