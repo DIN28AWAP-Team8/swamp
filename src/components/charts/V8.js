@@ -4,6 +4,7 @@ import { Chart } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import "chartjs-adapter-luxon";
 import axios from "axios";
+import "../../App.css";
 
 const URL = "http://localhost:8080/data/";
 
@@ -43,7 +44,7 @@ export default function V8() {
 
 
     const options = {
-        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 position: "top",
@@ -83,9 +84,11 @@ export default function V8() {
     };
 
     return (
-        <div style={{ width: "1000px" }}>
+        <div style={{ min_width: "5px" }}>
             <h1></h1>
-            <Line options={options} data={data} />
+            <article className="canvas-container">
+                <Line   options={options} data={data}/>
+            </article>
             <p>Accurate assessment of anthropogenic carbon dioxide (CO2) emissions and their redistribution among the atmosphere, ocean, and terrestrial biosphere in a changing climate is critical to better understand the global carbon cycle, support the development of climate policies, and project future climate change. Here we describe and synthesize datasets and methodology to quantify the five major components of the global carbon budget and their uncertainties. Fossil CO2 emissions (EFOS) are based on energy statistics and cement production data, while emissions from land-use change (ELUC), mainly deforestation, are based on land use and land-use change data and bookkeeping models. Atmospheric CO2 concentration is measured directly, and its growth rate (GATM) is computed from the annual changes in concentration. The ocean CO2 sink (SOCEAN) is estimated with global ocean biogeochemistry models and observation-based data products. The terrestrial CO2 sink (SLAND) is estimated with dynamic global vegetation models. The resulting carbon budget imbalance (BIM), the difference between the estimated total emissions and the estimated changes in the atmosphere, ocean, and terrestrial biosphere, is a measure of imperfect data and understanding of the contemporary carbon cycle. All uncertainties are reported as ±1σ. For the first time, an approach is shown to reconcile the difference in our ELUC estimate with the one from national greenhouse gas inventories, supporting the assessment of collective countries' climate progress.</p>
             Sources:
             <ul>
