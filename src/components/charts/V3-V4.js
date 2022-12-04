@@ -4,6 +4,7 @@ import { Chart } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import "chartjs-adapter-luxon";
 import axios from "axios";
+import "../../App.css"
 
 const URL = "http://localhost:8080/data/";
 
@@ -110,7 +111,7 @@ export default function V3V4() {
     };
 
     const options = {
-        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 position: "top",
@@ -147,9 +148,11 @@ export default function V3V4() {
     };
 
     return (
-        <div style={{ width: "1000px" }}>
+        <div style={{ min_width: "5px" }}>
             <h1></h1>
-            <Line options={options} data={data} />
+            <article className="canvas-container">
+                <Line   options={options} data={data}/>
+            </article>
             <p>The graphs show monthly mean carbon dioxide measured at Mauna Loa Observatory, Hawaii. The carbon dioxide data on Mauna Loa constitute the longest record of direct measurements of CO2 in the atmosphere.</p>
             <p>The CO2 records presented here are derived from three ice cores obtained at Law Dome, East Antarctica from 1987 to 1993. The Law Dome site satisfies many of the desirable characteristics of an ideal ice core site for atmospheric CO2 reconstructions including negligible melting of the ice sheet surface, low concentrations of impurities, regular stratigraphic layering undisturbed at the surface by wind or at depth by ice flow, and high snow accumulation rate.</p>
             Sources:

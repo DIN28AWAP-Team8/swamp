@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Chart } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import axios from "axios";
+import "../../App.css"
 
 const URL = "http://localhost:8080/data/";
 
@@ -37,7 +38,7 @@ export default function V5() {
     };
 
     const options = {
-        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 position: "top",
@@ -76,9 +77,11 @@ export default function V5() {
     };
 
     return (
-        <div style={{ width: "1000px" }}>
+        <div style={{ min_width: "5px" }}>
             <h1></h1>
-            <Line options={options} data={data} />
+            <article className="canvas-container">
+                <Line   options={options} data={data}/>
+            </article>
             <p>TODO</p>
             Sources:
             <ul>

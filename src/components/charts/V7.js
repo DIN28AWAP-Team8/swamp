@@ -4,6 +4,7 @@ import { Chart } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import "chartjs-adapter-luxon";
 import axios from "axios";
+import "../../App.css"
 
 const URL = "http://localhost:8080/data/";
 
@@ -57,7 +58,7 @@ export default function V7Chart() {
     };
 
     const options = {
-        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 position: "top",
@@ -100,9 +101,11 @@ export default function V7Chart() {
     };
 
     return (
-        <div style={{ width: "1000px" }}>
+        <div style={{ min_width: "5px" }}>
             <h1></h1>
-            <Line options={options} data={data} />
+            <article className="canvas-container">
+                <Line   options={options} data={data}/>
+            </article>
             <p>Reconstructions of Earth’s past climate strongly influence our
                 understanding of the dynamics and sensitivity of the climate
                 system. Yet global temperature has been reconstructed for only a few

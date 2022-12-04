@@ -4,11 +4,12 @@ import { Chart } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import "chartjs-adapter-luxon";
 import axios from "axios";
+import "../../App.css"
 
 const URL = "http://localhost:8080/data/";
 
 export default function V1V2Chart() {
-
+ 
     const [annuallyDataGlobal, setAnnuallyDataGlobal] = useState([]);
     const [annuallyDataNorthern, setAnnuallyDataNorthern] = useState([]);
     const [annuallyDataSouthern, setAnnuallyDataSouthern] = useState([]);
@@ -147,7 +148,7 @@ export default function V1V2Chart() {
     };
 
     const options = {
-        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 position: "top",
@@ -203,9 +204,14 @@ export default function V1V2Chart() {
     };
 
     return (
-        <div style={{ width: "1000px" }}>
+        <div style={{ min_width: "5px" }}>
             <h1></h1>
-            <Line options={options} data={data} />
+
+            <article className="canvas-container">
+                <Line   options={options} data={data}/>
+            </article>
+
+            
             <p>HadCRUT5 is a gridded dataset of global historical surface temperature anomalies relative to a 1961-1990 reference period. Data are available for each month from January 1850 onwards, on a 5 degree grid and as global and regional average time series. The dataset is a collaborative product of the Met Office Hadley Centre and the Climatic Research Unit at the University of East Anglia.</p>
             <p>Northern Hemisphere temperature reconstruction for the past 2,000 years by combining low-resolution proxies with tree-ring data, using a wavelet transform technique to achieve timescale-dependent processing of the data.</p>
             Sources:
