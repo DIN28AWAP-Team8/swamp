@@ -31,8 +31,11 @@ label {
   border-radius: 50%;
 }
 
+
+/*height of the Chart N2 */
 .canvas-container {
-  height: 60vh;
+  height: 150vh;
+  overflow: auto;
 }
 
 .nav-shortcuts {
@@ -57,3 +60,4 @@ footer {
   background-color: #343a40;
   color: #7e8286;
 }
+
