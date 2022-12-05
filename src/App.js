@@ -63,7 +63,7 @@ class App extends Component {
     const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
 
     return (
-      <div>
+      <div class="d-flex flex-column min-vh-100">
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
             Project
@@ -164,6 +164,8 @@ class App extends Component {
             <Route path="/N2" element={<N2 />} />
           </Routes>
         </div>
+
+        <footer class="mt-auto">SHREK TEAM</footer>
       </div>
     );
   }
