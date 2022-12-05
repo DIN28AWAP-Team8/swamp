@@ -102,10 +102,10 @@ class App extends Component {
 
           <div className="navbar-nav nav-shortcuts">
             <Link to={"/N1"} className="nav-link nav-shortcut">
-              Athmospheric co2 and temperatures
+              Atmospheric CO2 and Temperatures
             </Link>
             <Link to={"/N2"} className="nav-link nav-shortcut">
-              Emission sources
+              Emission Sources
             </Link>
           </div>
 
