@@ -1,6 +1,7 @@
 // Home component is public for all visitor
 import React, { Component } from "react";
 import UserService from "../services/user.service";
+import V1V2Chart from "./charts/V1-V2";
 
 export default class Home extends Component {
   constructor(props) {

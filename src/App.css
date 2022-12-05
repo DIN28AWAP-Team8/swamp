@@ -31,6 +31,10 @@ label {
   border-radius: 50%;
 }
 
+.canvas-container {
+  height: 60vh;
+}
+
 .nav-shortcuts {
   text-align: center;
 }
@@ -42,6 +46,6 @@ label {
   padding: 5px;
 }
 
-.logout{
+.logout {
   color: red;
 }
