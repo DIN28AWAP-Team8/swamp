@@ -43,6 +43,11 @@
             "consumption_emissions": "SELECT * FROM v8_consumption_emissions",
             "emissions_transfers": "SELECT * FROM v8_emissions_transfers",
             "territorial_emissions": "SELECT * FROM v8_territorial_emissions"
+        },
+        "v9": {
+            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V9",
+            "sub_sector_emissions": "SELECT Sector, Sub_Sector, SUM(Granular_Data) AS Data FROM v9_sector_co2_emissions GROUP BY Sub_Sector",
+            "sector_emissions": "SELECT Sector, SUM(Granular_Data) AS Data FROM v9_sector_co2_emissions GROUP BY Sector"
         }
     },
     "user": {

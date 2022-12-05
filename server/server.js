@@ -254,3 +254,23 @@ app.get("/data/v8/consumption_emissions", async function (req, res) {
     res.status(500).json({ message: error.message });
   }
 });
+
+app.get("/data/v9/sector_co2_emissions", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v9.sector_emissions);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/data/v9/sub_sector_co2_emissions", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.v9.sub_sector_emissions);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
