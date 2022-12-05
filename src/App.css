@@ -31,8 +31,11 @@ label {
   border-radius: 50%;
 }
 
+
+/*height of the Chart N2 */
 .canvas-container {
-  height: 60vh;
+  height: 150vh;
+  overflow: auto;
 }
 
 .nav-shortcuts {
@@ -46,6 +49,15 @@ label {
   padding: 5px;
 }
 
-.logout {
-  color: red;
+footer {
+  text-align: center;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  width: 100%;
+  min-height: 3rem;
+  line-height: 3rem;
+  background-color: #343a40;
+  color: #7e8286;
 }
+
