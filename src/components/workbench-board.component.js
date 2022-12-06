@@ -10,7 +10,7 @@ function Workbench() {
         <h3>Create your visualizations here</h3>
       </header>
       <div className="visu-container">
-        <div className="visu1">
+        <div className="visu1" onClick={null}>
           <h2>
             <AiOutlinePlusCircle />
             V1
@@ -20,7 +20,7 @@ function Workbench() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
           </p>
         </div>
-        <div className="visu2">
+        <div className="visu2" onClick={null}>
           <div className="visu-head">
             <h2>
               <AiOutlinePlusCircle />
@@ -32,7 +32,7 @@ function Workbench() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
           </p>
         </div>
-        <div className="visu3">
+        <div className="visu3" onClick={null}>
           <h2>
             <AiOutlinePlusCircle />
             V3
@@ -42,7 +42,7 @@ function Workbench() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
           </p>
         </div>
-        <div className="visu4">
+        <div className="visu4" onClick={null}>
           <h2>
             <AiOutlinePlusCircle />
             V4
@@ -52,7 +52,7 @@ function Workbench() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
           </p>
         </div>
-        <div className="visu5">
+        <div className="visu5" onClick={null}>
           <h2>
             <AiOutlinePlusCircle />
             V5
@@ -62,7 +62,7 @@ function Workbench() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
           </p>
         </div>
-        <div className="visu6">
+        <div className="visu6" onClick={null}>
           <h2>
             <AiOutlinePlusCircle />
             V6
@@ -72,7 +72,7 @@ function Workbench() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
           </p>
         </div>
-        <div className="visu7">
+        <div className="visu7" onClick={null}>
           <h2>
             <AiOutlinePlusCircle />
             V7
@@ -82,7 +82,7 @@ function Workbench() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
           </p>
         </div>
-        <div className="visu8">
+        <div className="visu8" onClick={null}>
           <h2>
             <AiOutlinePlusCircle />
             V8
@@ -92,7 +92,7 @@ function Workbench() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
           </p>
         </div>
-        <div className="visu9">
+        <div className="visu9" onClick={null}>
           <h2>
             <AiOutlinePlusCircle />
             V9
@@ -102,7 +102,7 @@ function Workbench() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
           </p>
         </div>
-        <div className="visu10">
+        <div className="visu10" onClick={null}>
           <h2>
             <AiOutlinePlusCircle />
             V10

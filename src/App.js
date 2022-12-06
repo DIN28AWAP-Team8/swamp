@@ -67,12 +67,12 @@ class App extends Component {
       <div className="d-flex flex-column min-vh-100">
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
-            Project
+            TEAM-8
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to={"/home"} className="nav-link">
-                Home
+                Public Space
               </Link>
             </li>
 
@@ -91,23 +91,20 @@ class App extends Component {
                 </Link>
               </li>
             )}
-
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/user"} className="nav-link">
-                  User
-                </Link>
-              </li>
-            )}
           </div>
 
           <div className="navbar-nav nav-shortcuts">
-            <Link to={"/N1"} className="nav-link nav-shortcut">
-              Atmospheric CO2 and Temperatures
+            <Link to={"/N1"} className="nav-link nav-shortcut N1">
+              N1 : Atmospheric CO2 and Temperatures
             </Link>
-            <Link to={"/N2"} className="nav-link nav-shortcut">
-              Emission Sources
+            <Link to={"/N2"} className="nav-link nav-shortcut N2">
+              N2 : Emission Sources
             </Link>
+            {currentUser && (
+              <Link to={"/user"} className="nav-link nav-shortcut N3">
+                N3 : User
+              </Link>
+            )}
           </div>
 
           {currentUser ? (
@@ -115,7 +112,7 @@ class App extends Component {
               <li>
                 {/* Add component used to create visualizations */}
                 <Link to={"/Workbench"} className="nav-link nav-ico">
-                  <AiOutlinePlusCircle />
+                  <AiOutlinePlusCircle style={{ color: "green" }} />
                 </Link>
               </li>
               <li className="nav-item">
@@ -167,7 +164,9 @@ class App extends Component {
           </Routes>
         </div>
 
-        <footer className="mt-auto">SHREK TEAM</footer>
+        <footer className="mt-auto">
+          DIN28AWAP-Team8 : Diana, Arnaud, Tatiana, Nick.
+        </footer>
       </div>
     );
   }
