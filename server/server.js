@@ -359,3 +359,87 @@ app.get("/posts/get_post", async function (req, res) {
     res.status(500).json({ message: error.message });
   }
 });
+
+app.get("/posts/get_charts", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.posts.get_charts, {
+      replacements: {
+        post_id: req.query.post_id
+      }
+    });
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.post("/posts/set_visibility", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.posts.set_visibility, {
+      replacements: {
+        public: req.query.public
+      }
+    });
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.post("/posts/set_columns", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.posts.set_columns, {
+      replacements: {
+        two_columns: req.query.two_columns
+      }
+    });
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.delete("/posts/remove_chart", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.posts.remove_chart, {
+      replacements: {
+        chart_name: req.query.chart_name
+      }
+    });
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.delete("/posts/delete_post", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.posts.delete_post, {
+      replacements: {
+        post_id: req.query.post_id
+      }
+    });
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.delete("/posts/delete_all_posts", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.posts.delete_all_posts, {
+      replacements: {
+        user_id: req.query.user_id
+      }
+    });
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});

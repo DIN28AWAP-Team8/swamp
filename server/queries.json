@@ -60,12 +60,12 @@
         "create_post": "INSERT INTO post (Description, Date_Time, User_ID, Public, Two_Columns) VALUES (:description, NOW(), :user_id, :public, :two_columns)",
         "add_chart": "INSERT INTO post_chart (Post_ID, Chart_ID, Custom_Description) VALUES (:post_id, (SELECT Chart_ID FROM chart WHERE Name = :chart_name), :description)",
         "remove_chart": "DELETE FROM post_chart WHERE Post_ID = 1 AND Chart_ID = (SELECT Chart_ID FROM chart WHERE Name = :chart_name",
-        "set_public": "UPDATE post SET Public = true WHERE Post_ID = 1",
-        "set_two_columns": "UPDATE post SET Two_Columns = true WHERE Post_ID = 1",
+        "set_visibility": "UPDATE post SET Public = :public WHERE Post_ID = :post_id",
+        "set_columns": "UPDATE post SET Two_Columns = :two_columns WHERE Post_ID = :post_id",
         "get_posts": "SELECT * FROM post WHERE User_ID = :user_id",
         "get_post": "SELECT * FROM post WHERE Post_ID = :post_id",
-        "get_charts": "SELECT c.Name FROM post_chart p JOIN chart c ON p.Chart_ID = c.Chart_ID WHERE Post_ID = 1",
-        "delete_post": "DELETE FROM post WHERE Post_ID = 1",
-        "delete_all_posts": "DELETE FROM post WHERE User_ID = 1"  
+        "get_charts": "SELECT c.Name FROM post_chart p JOIN chart c ON p.Chart_ID = c.Chart_ID WHERE Post_ID = :post_id",
+        "delete_post": "DELETE FROM post WHERE Post_ID = post_id",
+        "delete_all_posts": "DELETE FROM post WHERE User_ID = :user_id"  
     }
 }
