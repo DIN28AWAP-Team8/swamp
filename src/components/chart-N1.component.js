@@ -1,9 +1,9 @@
 import React from "react";
 import V1V2Chart from "./charts/V1-V2";
-import V3V4Chart from "./charts/V3-V4";
+import V3V4V10Chart from "./charts/V3-V4-V10";
 import V5Chart from "./charts/V5";
 import V6Chart from "./charts/V6";
-import V7Chart from "./charts/V7";
+import V7V10Chart from "./charts/V7-V10";
 
 function N1() {
   return (
@@ -12,7 +12,7 @@ function N1() {
         <V1V2Chart />
       </div>
       <div>
-        <V3V4Chart />
+        <V3V4V10Chart />
       </div>
       <div>
         <V5Chart />
@@ -21,7 +21,7 @@ function N1() {
         <V6Chart />
       </div>
       <div>
-        <V7Chart />
+        <V7V10Chart />
       </div>
    
     </div>

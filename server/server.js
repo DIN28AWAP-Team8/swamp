@@ -274,3 +274,23 @@ app.get("/data/v9/sub_sector_co2_emissions", async function (req, res) {
     res.status(500).json({ message: error.message });
   }
 });
+
+app.get("/data/v10/human_history_2m", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.V10.human_history_2m);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/data/v10/human_history_1k", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.data_set.V10.human_history_1k);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});

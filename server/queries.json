@@ -48,6 +48,12 @@
             "list": "SELECT * FROM data_set WHERE Data_Set_Group = V9",
             "sub_sector_emissions": "SELECT Sector, Sub_Sector, SUM(Granular_Data) AS Data FROM v9_sector_co2_emissions GROUP BY Sub_Sector",
             "sector_emissions": "SELECT Sector, SUM(Granular_Data) AS Data FROM v9_sector_co2_emissions GROUP BY Sector"
+        },
+        "V10": {
+            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V10",
+            "human_history": "SELECT * FROM v10_human_condition_milestones",
+            "human_history_2m": "SELECT *, 0 AS Static_Value FROM v10_human_condition_milestones WHERE Years_Before_Present <= 2000000",
+            "human_history_1k": "SELECT *, 0 AS Static_Value FROM v10_human_condition_milestones WHERE Date >= \"1006-01-01\""
         }
     },
     "user": {
