@@ -16,6 +16,7 @@ import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 import N1 from "./components/chart-N1.component";
 import N2 from "./components/chart-N2.component";
+import Workbench from "./components/workbench-board.component";
 
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
@@ -63,7 +64,7 @@ class App extends Component {
     const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
 
     return (
-      <div class="d-flex flex-column min-vh-100">
+      <div className="d-flex flex-column min-vh-100">
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
             Project
@@ -113,7 +114,7 @@ class App extends Component {
             <div className="navbar-nav ml-auto">
               <li>
                 {/* Add component used to create visualizations */}
-                <Link to={"/"} className="nav-link nav-ico">
+                <Link to={"/Workbench"} className="nav-link nav-ico">
                   <AiOutlinePlusCircle />
                 </Link>
               </li>
@@ -162,10 +163,11 @@ class App extends Component {
             <Route path="/admin" element={<BoardAdmin />} />
             <Route path="/N1" element={<N1 />} />
             <Route path="/N2" element={<N2 />} />
+            <Route path="/Workbench" element={<Workbench />} />
           </Routes>
         </div>
 
-        <footer class="mt-auto">SHREK TEAM</footer>
+        <footer className="mt-auto">SHREK TEAM</footer>
       </div>
     );
   }

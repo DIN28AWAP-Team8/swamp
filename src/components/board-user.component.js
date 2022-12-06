@@ -39,6 +39,9 @@ export default class BoardUser extends Component {
       <div className="container">
         <header className="jumbotron">
           <h3>{this.state.content}</h3>
+          <div>
+            Here we display all the visualizations the user created
+          </div>
         </header>
       </div>
     );
