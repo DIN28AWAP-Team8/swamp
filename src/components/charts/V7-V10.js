@@ -8,10 +8,12 @@ import "../../App.css"
 
 const URL = "http://localhost:8080/data/";
 
-export default function V7Chart() {
+export default function V7V10Chart() {
 
     const [v7TemperatureRecords, setV7TemperatureRecords] = useState([]);
     const [v7Co2Measurements, setv7Co2Measurements] = useState([]);
+
+    const [v10Data, setV10Data] = useState([]);
 
     useEffect(() => {
         axios
@@ -26,6 +28,14 @@ export default function V7Chart() {
             .get(URL + "v7/co2_measurements")
             .then(response => {
                 setv7Co2Measurements(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        axios
+            .get(URL + "v10/human_history_2m")
+            .then(response => {
+                setV10Data(response.data);
             })
             .catch((error) => {
                 console.error(error);
@@ -53,6 +63,17 @@ export default function V7Chart() {
                     yAxisKey: "Carbon_Dioxide",
                 },
                 pointRadius: 1
+            },
+            {
+                label: "Human History Milestones",
+                data: v10Data,
+                yAxisID: "Events",
+                parsing: {
+                    xAxisKey: "Years_Before_Present",
+                    yAxisKey: "Static_Value",
+                },
+                pointRadius: 3,
+                showLine: false
             }
         ],
     };
@@ -65,12 +86,23 @@ export default function V7Chart() {
             },
             title: {
                 display: true,
-                text: "V7: Evolution of Global Temperature Over the Past Two Million Years"
+                text: "V7 & V10: Evolution of Global Temperature Over the Past Two Million Years with Human History Milestones"
             },
             legend: {
                 display: true,
                 position: "bottom"
             },
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
+                        if (context.datasetIndex === 2) {
+                            return context.raw.Event;
+                        } else {
+                            return " " + context.dataset.label + ": " + context.formattedValue;
+                        }
+                    }
+                }
+            }
         },
         scales: {
             x: {
@@ -96,6 +128,11 @@ export default function V7Chart() {
                     display: true,
                     text: 'CO2 concentration in ppm'
                 }
+            },
+            Events: {
+                display: false,
+                position: "left",
+                beginAtZero: true,
             }
         },
     };
@@ -104,7 +141,7 @@ export default function V7Chart() {
         <div style={{ min_width: "5px" }}>
             <h1></h1>
             <article className="canvas-container">
-                <Line   options={options} data={data}/>
+                <Line options={options} data={data} />
             </article>
             <p>Reconstructions of Earth’s past climate strongly influence our
                 understanding of the dynamics and sensitivity of the climate
@@ -138,10 +175,13 @@ export default function V7Chart() {
                 7 degrees Celsius, 95 per cent credible interval) over the next few
                 millennia as ice sheets, vegetation and atmospheric dust continue
                 to respond to global warming.</p>
+            <p>The human condition, in which we thrive on vast knowledge of our place in the cosmos and our influence on Earth, and on profound understanding of our body plan and its origins, and the unique traits of our intelligence, of spirit, imagination and heart, fostered amongst societies with customs and tolerances adapted to divergent ecological and historical contexts, driving cultural developments and technological innovations that mould fabulously wealthy and powerful civilisations; in which our adventurous sociality builds cooperative networks to engineer expansions into every habitable region of the world and to exploit Earth’s resources ever more efficiently, until our insatiable growth exhausts ecosystems and destabilises climate, straining the integrity of our interdependencies amongst each other, and with nature, to breaking point and beyond, and in which our collective decisions to take responsibility for the wellbeing of future generations hang on a golden thread.</p>
             Sources:
             <ul>
-                <li><a href="https://climate.fas.harvard.edu/files/climate/files/snyder_2016.pdf">description</a></li>
-                <li><a href="http://carolynsnyder.com/papers/Snyder_Data_Figures.zip">data set (figure 1)</a></li>
+                <li><a href="https://climate.fas.harvard.edu/files/climate/files/snyder_2016.pdf">temperature evolution description</a></li>
+                <li><a href="http://carolynsnyder.com/papers/Snyder_Data_Figures.zip">temperature evolution data set (figure 1)</a></li>
+                <li><a href="https://www.southampton.ac.uk/~cpd/history-synopsis.html">human history milestones description</a></li>
+                <li><a href="https://www.southampton.ac.uk/~cpd/history.html">human history milestones data set</a></li>
             </ul>
         </div>
     );

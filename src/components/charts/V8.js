@@ -86,7 +86,7 @@ export default function V8() {
     return (
         <div style={{ min_width: "5px"}}>
             <h1></h1>
-            <article className="canvas-container">
+            <article className="canvas-container-big">
                 <Line   options={options} data={data}/>
             </article>
             <div>
