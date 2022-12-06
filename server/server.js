@@ -57,7 +57,7 @@ function initial() {
 
 app.get("/data", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.list);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.list);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -67,7 +67,7 @@ app.get("/data", async function (req, res) {
 
 app.get("/data/v1/annually_global", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.annually_global);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v1.annually_global);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -77,7 +77,7 @@ app.get("/data/v1/annually_global", async function (req, res) {
 
 app.get("/data/v1/annually_northern", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.annually_northern_hemisphere);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v1.annually_northern_hemisphere);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -87,7 +87,7 @@ app.get("/data/v1/annually_northern", async function (req, res) {
 
 app.get("/data/v1/annually_southern", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.annually_southern_hemisphere);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v1.annually_southern_hemisphere);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -97,7 +97,7 @@ app.get("/data/v1/annually_southern", async function (req, res) {
 
 app.get("/data/v1/monthly_global", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.monthly_global);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v1.monthly_global);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -107,7 +107,7 @@ app.get("/data/v1/monthly_global", async function (req, res) {
 
 app.get("/data/v1/monthly_northern", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.monthly_northern_hemisphere);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v1.monthly_northern_hemisphere);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -117,7 +117,7 @@ app.get("/data/v1/monthly_northern", async function (req, res) {
 
 app.get("/data/v1/monthly_southern", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v1.monthly_southern_hemisphere);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v1.monthly_southern_hemisphere);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -127,7 +127,7 @@ app.get("/data/v1/monthly_southern", async function (req, res) {
 
 app.get("/data/v2/temperature_reconstruction", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v2.northern_hemisphere_temperature_reconstruction);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v2.northern_hemisphere_temperature_reconstruction);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -137,7 +137,7 @@ app.get("/data/v2/temperature_reconstruction", async function (req, res) {
 
 app.get("/data/v3/annually_mean", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v3.annually_mean);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v3.annually_mean);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -147,7 +147,7 @@ app.get("/data/v3/annually_mean", async function (req, res) {
 
 app.get("/data/v3/monthly_mean", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v3.monthly_mean);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v3.monthly_mean);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -157,7 +157,7 @@ app.get("/data/v3/monthly_mean", async function (req, res) {
 
 app.get("/data/v4/de08", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v4.de08);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v4.de08);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -167,7 +167,7 @@ app.get("/data/v4/de08", async function (req, res) {
 
 app.get("/data/v4/de08_2", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v4.de08_02);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v4.de08_02);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -177,7 +177,7 @@ app.get("/data/v4/de08_2", async function (req, res) {
 
 app.get("/data/v4/dss", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v4.dss);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v4.dss);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -187,7 +187,7 @@ app.get("/data/v4/dss", async function (req, res) {
 
 app.get("/data/v5/vostok_ice_core_co2", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v5.vostok_ice_core_co2);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v5.vostok_ice_core_co2);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -197,7 +197,7 @@ app.get("/data/v5/vostok_ice_core_co2", async function (req, res) {
 
 app.get("/data/v6/ice_core_co2", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v6.ice_core_co2);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v6.ice_core_co2);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -207,7 +207,7 @@ app.get("/data/v6/ice_core_co2", async function (req, res) {
 
 app.get("/data/v7/co2_measurements", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v7.co2_measurements);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v7.co2_measurements);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -217,7 +217,7 @@ app.get("/data/v7/co2_measurements", async function (req, res) {
 
 app.get("/data/v7/temperature_records", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v7.temperature_records);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v7.temperature_records);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -227,7 +227,7 @@ app.get("/data/v7/temperature_records", async function (req, res) {
 
 app.get("/data/v8/emissions_transfers", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v8.emissions_transfers);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v8.emissions_transfers);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -237,7 +237,7 @@ app.get("/data/v8/emissions_transfers", async function (req, res) {
 
 app.get("/data/v8/territorial_emissions", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v8.territorial_emissions);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v8.territorial_emissions);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -247,7 +247,7 @@ app.get("/data/v8/territorial_emissions", async function (req, res) {
 
 app.get("/data/v8/consumption_emissions", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v8.consumption_emissions);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v8.consumption_emissions);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -257,7 +257,7 @@ app.get("/data/v8/consumption_emissions", async function (req, res) {
 
 app.get("/data/v9/sector_co2_emissions", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v9.sector_emissions);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v9.sector_emissions);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -267,7 +267,7 @@ app.get("/data/v9/sector_co2_emissions", async function (req, res) {
 
 app.get("/data/v9/sub_sector_co2_emissions", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.v9.sub_sector_emissions);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.v9.sub_sector_emissions);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -277,7 +277,7 @@ app.get("/data/v9/sub_sector_co2_emissions", async function (req, res) {
 
 app.get("/data/v10/human_history_2m", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.V10.human_history_2m);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.V10.human_history_2m);
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {
@@ -287,7 +287,72 @@ app.get("/data/v10/human_history_2m", async function (req, res) {
 
 app.get("/data/v10/human_history_1k", async function (req, res) {
   try {
-    const [result,] = await db.sequelize.query(prepared_queries.data_set.V10.human_history_1k);
+    const [result,] = await db.sequelize.query(prepared_queries.data_sets.V10.human_history_1k);
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+/**
+ * APIs to manage user specific posts (aka custom views of visualizations/charts)
+ */
+
+app.post("/posts/create", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.posts.create_post, {
+      replacements: {
+        description: "",
+        user_id: req.query.user_id,
+        public: req.query.public,
+        two_columns: req.query.two_columns
+      }
+    });
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.post("/posts/add_chart", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.posts.add_chart, {
+      replacements: {
+        description: req.query.description,
+        post_id: req.query.post_id,
+        chart_name: req.query.chart_name
+      }
+    });
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/posts/get_posts", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.posts.get_posts, {
+      replacements: {
+        user_id: req.query.user_id
+      }
+    });
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/posts/get_post", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.posts.get_posts, {
+      replacements: {
+        post_id: req.query.post_id
+      }
+    });
     if (!result) result = [];
     res.status(200).json(result);
   } catch (error) {

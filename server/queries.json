@@ -1,5 +1,5 @@
 {
-    "data_set": {
+    "data_sets": {
         "list": "SELECT * FROM data_set",
         "v1": {
             "list": "SELECT * FROM data_set WHERE Data_Set_Group = V1",
@@ -56,9 +56,16 @@
             "human_history_1k": "SELECT *, 0 AS Static_Value FROM v10_human_condition_milestones WHERE Date >= \"1006-01-01\""
         }
     },
-    "user": {
-        "mail_exists": "SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM user WHERE Mail = ?) THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END",
-        "user_name_exists": "SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM user WHERE User_Name = ?) THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END",
-        "create_user": "INSERT INTO user(User_ID, User_Name, Password_Hash, Mail, Firstname, Lastname) VALUES (?, ?, ?, ?, ?, ?)"
+    "posts": {
+        "create_post": "INSERT INTO post (Description, Date_Time, User_ID, Public, Two_Columns) VALUES (:description, NOW(), :user_id, :public, :two_columns)",
+        "add_chart": "INSERT INTO post_chart (Post_ID, Chart_ID, Custom_Description) VALUES (:post_id, (SELECT Chart_ID FROM chart WHERE Name = :chart_name), :description)",
+        "remove_chart": "DELETE FROM post_chart WHERE Post_ID = 1 AND Chart_ID = (SELECT Chart_ID FROM chart WHERE Name = :chart_name",
+        "set_public": "UPDATE post SET Public = true WHERE Post_ID = 1",
+        "set_two_columns": "UPDATE post SET Two_Columns = true WHERE Post_ID = 1",
+        "get_posts": "SELECT * FROM post WHERE User_ID = :user_id",
+        "get_post": "SELECT * FROM post WHERE Post_ID = :post_id",
+        "get_charts": "SELECT c.Name FROM post_chart p JOIN chart c ON p.Chart_ID = c.Chart_ID WHERE Post_ID = 1",
+        "delete_post": "DELETE FROM post WHERE Post_ID = 1",
+        "delete_all_posts": "DELETE FROM post WHERE User_ID = 1"  
     }
 }
