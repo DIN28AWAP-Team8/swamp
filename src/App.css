@@ -31,10 +31,13 @@ label {
   border-radius: 50%;
 }
 
-
-/*height of the Chart N2 */
 .canvas-container {
-  height: 150vh;
+  height: 90vh;
+  overflow: auto;
+}
+
+.canvas-container-big{
+  height: 165vh;
   overflow: auto;
 }
 
