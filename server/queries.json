@@ -52,8 +52,8 @@
         "V10": {
             "list": "SELECT * FROM data_set WHERE Data_Set_Group = V10",
             "human_history": "SELECT * FROM v10_human_condition_milestones",
-            "human_history_2m": "SELECT *, 0 AS Static_Value FROM v10_human_condition_milestones WHERE Years_Before_Present <= 2000000",
-            "human_history_1k": "SELECT *, 0 AS Static_Value FROM v10_human_condition_milestones WHERE Date >= \"1006-01-01\""
+            "human_history_2m": "SELECT *, 0 AS Static_Value FROM v10_human_condition_milestones_reduced WHERE Years_Before_Present <= 2000000",
+            "human_history_1k": "SELECT *, 0 AS Static_Value FROM v10_human_condition_milestones_reduced WHERE Date >= \"1006-01-01\""
         }
     },
     "posts": {
