@@ -443,3 +443,17 @@ app.delete("/posts/delete_all_posts", async function (req, res) {
     res.status(500).json({ message: error.message });
   }
 });
+
+app.delete("/users/delete_user", async function (req, res) {
+  try {
+    const [result,] = await db.sequelize.query(prepared_queries.user.delete_user, {
+      replacements: {
+        user_id: req.query.user_id
+      }
+    });
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
