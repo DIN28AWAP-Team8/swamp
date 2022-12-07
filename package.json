@@ -4,7 +4,7 @@
   "description": "Node.js Demo for JWT Authentication",
   "main": "server.js",
   "scripts": {
-    "start": "concurrently -n \"BACKEND\",\"FRONTEND\" \"cd ..\\server && node server.js && cd ..\\client\" \"react-scripts start\"",
+    "start": "concurrently -n \"BACKEND\",\"FRONTEND\" \"cd server && node server.js && cd ..\\client\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
