@@ -3,7 +3,7 @@ import "../App.css";
 
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
-const API_URL = "http://localhost:8080/api/";
+const API_URL = process.env.REACT_APP_API_ADDRESS + "/api/";
 
 export default class Workbench extends Component {
   createVisu(x, y) {
