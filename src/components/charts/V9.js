@@ -5,8 +5,6 @@ import { Pie } from "react-chartjs-2";
 import axios from "axios";
 import "../../App.css"
 
-const URL = "http://localhost:8080/data/";
-
 export default function V9Chart() {
 
     const [v9SectorEmissions, setV9SectorEmissions] = useState([]);
@@ -14,7 +12,7 @@ export default function V9Chart() {
 
     useEffect(() => {
         axios
-            .get(URL + "v9/sector_co2_emissions")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v9/sector_co2_emissions")
             .then(response => {
                 setV9SectorEmissions(response.data);
             })
@@ -22,7 +20,7 @@ export default function V9Chart() {
                 console.error(error);
             });
         axios
-            .get(URL + "v9/sub_sector_co2_emissions")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v9/sub_sector_co2_emissions")
             .then(response => {
                 setV9SubSectorEmissions(response.data);
             })

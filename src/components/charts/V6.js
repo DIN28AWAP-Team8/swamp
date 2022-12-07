@@ -5,15 +5,13 @@ import { Line } from "react-chartjs-2";
 import axios from "axios";
 import "../../App.css"
 
-const URL = "http://localhost:8080/data/";
-
 export default function V6() {
 
     const [v6Data, setV6Data] = useState([]);
 
     useEffect(() => {
         axios
-            .get(URL + "v6/ice_core_co2")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v6/ice_core_co2")
             .then(response => {
                 setV6Data(response.data.reverse());
             })

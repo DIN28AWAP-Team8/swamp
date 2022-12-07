@@ -6,15 +6,13 @@ import "chartjs-adapter-luxon";
 import axios from "axios";
 import "../../App.css";
 
-const URL = "http://localhost:8080/data/";
-
 export default function V8() {
 
     const [v8Data, setV8Data] = useState([]);
 
     useEffect(() => {
         axios
-            .get(URL + "v8/territorial_emissions")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v8/territorial_emissions")
             .then(response => {
                 setV8Data(response.data);
             })

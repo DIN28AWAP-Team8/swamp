@@ -5,15 +5,13 @@ import { Line } from "react-chartjs-2";
 import axios from "axios";
 import "../../App.css"
 
-const URL = "http://localhost:8080/data/";
-
 export default function V5() {
 
     const [v5Data, setV5Data] = useState([]);
 
     useEffect(() => {
         axios
-            .get(URL + "v5/vostok_ice_core_co2")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v5/vostok_ice_core_co2")
             .then(response => {
                 setV5Data(response.data.reverse());
             })

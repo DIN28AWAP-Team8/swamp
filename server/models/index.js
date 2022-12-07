@@ -1,6 +1,14 @@
 const config = require("../config/db.config.js");
 
 const Sequelize = require("sequelize");
+
+if (process.env.NODE_ENV == "production") {
+  config.HOST = process.env.GAE_DB_ADDRESS;
+  config.dialectOptions.socketPath = process.env.GAE_DB_ADDRESS;
+} else {
+  config.HOST = "127.0.0.1";
+}
+
 const sequelize = new Sequelize(
   config.DB,
   config.USER,

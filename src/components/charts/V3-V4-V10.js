@@ -6,8 +6,6 @@ import "chartjs-adapter-luxon";
 import axios from "axios";
 import "../../App.css"
 
-const URL = "http://localhost:8080/data/";
-
 export default function V3V4V10() {
 
     const [v3Annually, setV3Annually] = useState([]);
@@ -20,7 +18,7 @@ export default function V3V4V10() {
 
     useEffect(() => {
         axios
-            .get(URL + "v3/annually_mean")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v3/annually_mean")
             .then(response => {
                 setV3Annually(response.data);
             })
@@ -28,7 +26,7 @@ export default function V3V4V10() {
                 console.error(error);
             });
         axios
-            .get(URL + "v3/monthly_mean")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v3/monthly_mean")
             .then(response => {
                 setV3Monthly(response.data);
             })
@@ -36,7 +34,7 @@ export default function V3V4V10() {
                 console.error(error);
             });
         axios
-            .get(URL + "v4/de08")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v4/de08")
             .then(response => {
                 setV4DE08(response.data);
             })
@@ -45,7 +43,7 @@ export default function V3V4V10() {
             });
 
         axios
-            .get(URL + "v4/de08_2")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v4/de08_2")
             .then(response => {
                 setV4DE08_2(response.data);
             })
@@ -53,7 +51,7 @@ export default function V3V4V10() {
                 console.error(error);
             });
         axios
-            .get(URL + "v4/dss")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v4/dss")
             .then(response => {
                 setV4DSS(response.data);
             })
@@ -61,7 +59,7 @@ export default function V3V4V10() {
                 console.error(error);
             });
         axios
-            .get(URL + "v10/human_history_1k")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v10/human_history_1k")
             .then(response => {
                 setV10Data(response.data);
             })

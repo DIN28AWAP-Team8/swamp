@@ -6,8 +6,6 @@ import "chartjs-adapter-luxon";
 import axios from "axios";
 import "../../App.css"
 
-const URL = "http://localhost:8080/data/";
-
 export default function V7V10Chart() {
 
     const [v7TemperatureRecords, setV7TemperatureRecords] = useState([]);
@@ -17,7 +15,7 @@ export default function V7V10Chart() {
 
     useEffect(() => {
         axios
-            .get(URL + "v7/temperature_records")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v7/temperature_records")
             .then(response => {
                 setV7TemperatureRecords(response.data);
             })
@@ -25,7 +23,7 @@ export default function V7V10Chart() {
                 console.error(error);
             });
         axios
-            .get(URL + "v7/co2_measurements")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v7/co2_measurements")
             .then(response => {
                 setv7Co2Measurements(response.data);
             })
@@ -33,7 +31,7 @@ export default function V7V10Chart() {
                 console.error(error);
             });
         axios
-            .get(URL + "v10/human_history_2m")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v10/human_history_2m")
             .then(response => {
                 setV10Data(response.data);
             })

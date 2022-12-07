@@ -6,8 +6,6 @@ import "chartjs-adapter-luxon";
 import axios from "axios";
 import "../../App.css"
 
-const URL = "http://localhost:8080/data/";
-
 export default function V1V2Chart() {
  
     const [annuallyDataGlobal, setAnnuallyDataGlobal] = useState([]);
@@ -21,7 +19,7 @@ export default function V1V2Chart() {
 
     useEffect(() => {
         axios
-            .get(URL + "v1/annually_global")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v1/annually_global")
             .then(response => {
                 setAnnuallyDataGlobal(response.data);
             })
@@ -29,7 +27,7 @@ export default function V1V2Chart() {
                 console.error(error);
             });
         axios
-            .get(URL + "v1/annually_northern")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v1/annually_northern")
             .then(response => {
                 setAnnuallyDataNorthern(response.data);
             })
@@ -37,7 +35,7 @@ export default function V1V2Chart() {
                 console.error(error);
             });
         axios
-            .get(URL + "v1/annually_southern")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v1/annually_southern")
             .then(response => {
                 setAnnuallyDataSouthern(response.data);
             })
@@ -46,7 +44,7 @@ export default function V1V2Chart() {
             });
 
         axios
-            .get(URL + "v1/monthly_global")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v1/monthly_global")
             .then(response => {
                 setMonthlyDataGlobal(response.data);
             })
@@ -54,7 +52,7 @@ export default function V1V2Chart() {
                 console.error(error);
             });
         axios
-            .get(URL + "v1/monthly_northern")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v1/monthly_northern")
             .then(response => {
                 setMonthlyDataNorthern(response.data);
             })
@@ -62,7 +60,7 @@ export default function V1V2Chart() {
                 console.error(error);
             });
         axios
-            .get(URL + "v1/monthly_southern")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v1/monthly_southern")
             .then(response => {
                 setMonthlyDataSouthern(response.data);
             })
@@ -70,7 +68,7 @@ export default function V1V2Chart() {
                 console.error(error);
             });
         axios
-            .get(URL + "v2/temperature_reconstruction")
+            .get(process.env.REACT_APP_API_ADDRESS + "/data/v2/temperature_reconstruction")
             .then(response => {
                 setTemperatureReconstructionData(response.data);
             })
