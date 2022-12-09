@@ -1,113 +1,66 @@
 import React, { Component } from "react";
+import Modal from "./create-post-modal.component";
 import "../App.css";
-
-import { AiOutlinePlusCircle } from "react-icons/ai";
-
-const API_URL = process.env.REACT_APP_API_ADDRESS + "/api/";
+import { AiOutlinePlusCircle, AiOutlinePlusSquare } from "react-icons/ai";
+import { MdDoneOutline } from "react-icons/md";
 
 export default class Workbench extends Component {
-  createVisu(x, y) {
-    return axios
-      .post(API_URL + "createVisu", {
-        x,
-        y,
-      })
-      .then((response) => {
-        if (response.data.accessToken) {
-          // localStorage.setItem("user", JSON.stringify(response.data));
-        }
-
-        return response.data;
-      });
-  }
-
+  state = {
+    show: false,
+  };
+  showModal = (e) => {
+    this.setState(
+      {
+        show: !this.state.show,
+      },
+      console.log(this.state.show)
+    );
+  };
+  onClose = (e) => {
+    this.props.onClose && this.props.onClose(e);
+  };
   render() {
     return (
       <div className="container">
-        <header className="jumbotron">
-          <h3>Create your visualizations here</h3>
+        <header className="jumbotron" style={{ textAlign: "center" }}>
+          <h3>Create a post with your visualizations here</h3>
+          <AiOutlinePlusCircle
+            onClick={(e) => {
+              this.showModal();
+            }}
+            style={{ cursor: "pointer", color: "green" }}
+          />
         </header>
-        <div className="visu-container">
-          <div className="visu1" onClick={null}>
-            <h2>
-              <AiOutlinePlusCircle />
-              V1-V2
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim.
-            </p>
+
+        <Modal onClose={this.showModal} show={this.state.show}>
+          <div className="mdl-btn-container">
+            <button
+              className="v-btn btn btn-secondary"
+              x="v1-v2"
+              onClick={null}
+            >
+              <AiOutlinePlusSquare /> V1-V2
+            </button>
+            <button className="v-btn btn btn-secondary" onClick={null}>
+              <AiOutlinePlusSquare /> V3-V4-V10
+            </button>
+            <button className="v-btn btn btn-secondary" onClick={null}>
+              <AiOutlinePlusSquare /> V5
+            </button>
+            <button className="v-btn btn btn-secondary" onClick={null}>
+              <AiOutlinePlusSquare /> V6
+            </button>
+            <button className="v-btn btn btn-secondary" onClick={null}>
+              <AiOutlinePlusSquare /> V7-V10
+            </button>
+            <button className="v-btn btn btn-secondary" onClick={null}>
+              <AiOutlinePlusSquare /> V8
+            </button>
+            <button className="v-btn btn btn-secondary" onClick={null}>
+              <AiOutlinePlusSquare /> V9
+            </button>
           </div>
-          <div className="visu2" onClick={null}>
-            <div className="visu-head">
-              <h2>
-                <AiOutlinePlusCircle />
-                V3-V4-V10
-              </h2>
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim.
-            </p>
-          </div>
-          <div className="visu3" onClick={null}>
-            <h2>
-              <AiOutlinePlusCircle />
-              V5
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim.
-            </p>
-          </div>
-          <div className="visu4" onClick={null}>
-            <h2>
-              <AiOutlinePlusCircle />
-              V6
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim.
-            </p>
-          </div>
-          <div className="visu5" onClick={null}>
-            <h2>
-              <AiOutlinePlusCircle />
-              V7-V10
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim.
-            </p>
-          </div>
-          <div className="visu6" onClick={null}>
-            <h2>
-              <AiOutlinePlusCircle />
-              V8
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim.
-            </p>
-          </div>
-          <div className="visu7" onClick={null}>
-            <h2>
-              <AiOutlinePlusCircle />
-              V9
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim.
-            </p>
-          </div>
-        </div>
+        </Modal>
       </div>
     );
   }
