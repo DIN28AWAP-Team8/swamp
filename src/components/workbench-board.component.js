@@ -1,24 +1,23 @@
 import React, { Component } from "react";
-import Modal from "./create-post-modal.component";
 import "../App.css";
 import { AiOutlinePlusCircle, AiOutlinePlusSquare } from "react-icons/ai";
-import { MdDoneOutline } from "react-icons/md";
+
+import Modal from "./create-post-modal.component";
+import createPost from "./create-post";
 
 export default class Workbench extends Component {
   state = {
     show: false,
   };
   showModal = (e) => {
-    this.setState(
-      {
-        show: !this.state.show,
-      },
-      console.log(this.state.show)
-    );
+    this.setState({
+      show: !this.state.show,
+    });
   };
   onClose = (e) => {
     this.props.onClose && this.props.onClose(e);
   };
+
   render() {
     return (
       <div className="container">
@@ -27,6 +26,7 @@ export default class Workbench extends Component {
           <AiOutlinePlusCircle
             onClick={(e) => {
               this.showModal();
+              createPost(1,1);
             }}
             style={{ cursor: "pointer", color: "green" }}
           />

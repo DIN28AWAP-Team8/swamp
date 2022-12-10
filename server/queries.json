@@ -1,74 +1,73 @@
 {
-    "data_sets": {
-        "list": "SELECT * FROM data_set",
-        "v1": {
-            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V1",
-            "annually_global": "SELECT * FROM v1_hadcrut5_anually_global",
-            "annually_northern_hemisphere": "SELECT * FROM v1_hadcrut5_anually_northern_hemisphere",
-            "annually_southern_hemisphere": "SELECT * FROM v1_hadcrut5_anually_southern_hemisphere",
-            "monthly_global": "SELECT * FROM v1_hadcrut5_monthly_global",
-            "monthly_northern_hemisphere": "SELECT * FROM v1_hadcrut5_monthly_northern_hemisphere",
-            "monthly_southern_hemisphere": "SELECT * FROM v1_hadcrut5_monthly_southern_hemisphere"
-        },
-        "v2": {
-            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V2",
-            "northern_hemisphere_temperature_reconstruction": "SELECT * FROM v2_northern_hemisphere_temperature_reconstruction"
-        },
-        "v3": {
-            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V3",
-            "annually_mean": "SELECT * FROM v3_annually_mean",
-            "monthly_mean": "SELECT * FROM v3_monthly_mean"
-        },
-        "v4": {
-            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V4",
-            "de08": "SELECT * FROM v4_de08",
-            "de08_02": "SELECT * FROM v4_de08_2",
-            "dss": "SELECT * FROM v4_dss"
-        },
-        "v5": {
-            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V5",
-            "vostok_ice_core_co2": "SELECT * FROM v5_vostok_ice_core_co2"
-        },
-        "v6": {
-            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V6",
-            "ice_core_co2": "SELECT * FROM v6_ice_core_co2"
-        },
-        "v7": {
-            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V7",
-            "co2_measurements": "SELECT * FROM v7_co2_measurements",
-            "temperature_records": "SELECT * FROM v7_temperature_records"
-        },
-        "v8": {
-            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V8",
-            "consumption_emissions": "SELECT * FROM v8_consumption_emissions",
-            "emissions_transfers": "SELECT * FROM v8_emissions_transfers",
-            "territorial_emissions": "SELECT * FROM v8_territorial_emissions"
-        },
-        "v9": {
-            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V9",
-            "sub_sector_emissions": "SELECT Sector, Sub_Sector, SUM(Granular_Data) AS Data FROM v9_sector_co2_emissions GROUP BY Sub_Sector",
-            "sector_emissions": "SELECT Sector, SUM(Granular_Data) AS Data FROM v9_sector_co2_emissions GROUP BY Sector"
-        },
-        "V10": {
-            "list": "SELECT * FROM data_set WHERE Data_Set_Group = V10",
-            "human_history": "SELECT * FROM v10_human_condition_milestones",
-            "human_history_2m": "SELECT *, 0 AS Static_Value FROM v10_human_condition_milestones_reduced WHERE Years_Before_Present <= 2000000",
-            "human_history_1k": "SELECT *, 0 AS Static_Value FROM v10_human_condition_milestones_reduced WHERE Date >= \"1006-01-01\""
-        }
+  "data_sets": {
+    "list": "SELECT * FROM data_set",
+    "v1": {
+      "list": "SELECT * FROM data_set WHERE Data_Set_Group = V1",
+      "annually_global": "SELECT * FROM v1_hadcrut5_anually_global",
+      "annually_northern_hemisphere": "SELECT * FROM v1_hadcrut5_anually_northern_hemisphere",
+      "annually_southern_hemisphere": "SELECT * FROM v1_hadcrut5_anually_southern_hemisphere",
+      "monthly_global": "SELECT * FROM v1_hadcrut5_monthly_global",
+      "monthly_northern_hemisphere": "SELECT * FROM v1_hadcrut5_monthly_northern_hemisphere",
+      "monthly_southern_hemisphere": "SELECT * FROM v1_hadcrut5_monthly_southern_hemisphere"
     },
-    "posts": {
-        "create_post": "INSERT INTO post (Description, Date_Time, User_ID, Public, Two_Columns) VALUES (:description, NOW(), :user_id, :public, :two_columns)",
-        "add_chart": "INSERT INTO post_chart (Post_ID, Chart_ID, Custom_Description) VALUES (:post_id, (SELECT Chart_ID FROM chart WHERE Name = :chart_name), :description)",
-        "remove_chart": "DELETE FROM post_chart WHERE Post_ID = 1 AND Chart_ID = (SELECT Chart_ID FROM chart WHERE Name = :chart_name",
-        "set_visibility": "UPDATE post SET Public = :public WHERE Post_ID = :post_id",
-        "set_columns": "UPDATE post SET Two_Columns = :two_columns WHERE Post_ID = :post_id",
-        "get_posts": "SELECT * FROM post WHERE User_ID = :user_id",
-        "get_post": "SELECT * FROM post WHERE Post_ID = :post_id",
-        "get_charts": "SELECT c.Name FROM post_chart p JOIN chart c ON p.Chart_ID = c.Chart_ID WHERE Post_ID = :post_id",
-        "delete_post": "DELETE FROM post WHERE Post_ID = post_id",
-        "delete_all_posts": "DELETE FROM post WHERE User_ID = :user_id"  
+    "v2": {
+      "list": "SELECT * FROM data_set WHERE Data_Set_Group = V2",
+      "northern_hemisphere_temperature_reconstruction": "SELECT * FROM v2_northern_hemisphere_temperature_reconstruction"
     },
-    "user": {
-        "delete_user": "DELETE FROM users WHERE id = :user_id"
+    "v3": {
+      "list": "SELECT * FROM data_set WHERE Data_Set_Group = V3",
+      "annually_mean": "SELECT * FROM v3_annually_mean",
+      "monthly_mean": "SELECT * FROM v3_monthly_mean"
+    },
+    "v4": {
+      "list": "SELECT * FROM data_set WHERE Data_Set_Group = V4",
+      "de08": "SELECT * FROM v4_de08",
+      "de08_02": "SELECT * FROM v4_de08_2",
+      "dss": "SELECT * FROM v4_dss"
+    },
+    "v5": {
+      "list": "SELECT * FROM data_set WHERE Data_Set_Group = V5",
+      "vostok_ice_core_co2": "SELECT * FROM v5_vostok_ice_core_co2"
+    },
+    "v6": {
+      "list": "SELECT * FROM data_set WHERE Data_Set_Group = V6",
+      "ice_core_co2": "SELECT * FROM v6_ice_core_co2"
+    },
+    "v7": {
+      "list": "SELECT * FROM data_set WHERE Data_Set_Group = V7",
+      "co2_measurements": "SELECT * FROM v7_co2_measurements",
+      "temperature_records": "SELECT * FROM v7_temperature_records"
+    },
+    "v8": {
+      "list": "SELECT * FROM data_set WHERE Data_Set_Group = V8",
+      "consumption_emissions": "SELECT * FROM v8_consumption_emissions",
+      "emissions_transfers": "SELECT * FROM v8_emissions_transfers",
+      "territorial_emissions": "SELECT * FROM v8_territorial_emissions"
+    },
+    "v9": {
+      "list": "SELECT * FROM data_set WHERE Data_Set_Group = V9",
+      "sub_sector_emissions": "SELECT Sector, Sub_Sector, SUM(Granular_Data) AS Data FROM v9_sector_co2_emissions GROUP BY Sub_Sector",
+      "sector_emissions": "SELECT Sector, SUM(Granular_Data) AS Data FROM v9_sector_co2_emissions GROUP BY Sector"
+    },
+    "V10": {
+      "list": "SELECT * FROM data_set WHERE Data_Set_Group = V10",
+      "human_history": "SELECT * FROM v10_human_condition_milestones",
+      "human_history_2m": "SELECT *, 0 AS Static_Value FROM v10_human_condition_milestones_reduced WHERE Years_Before_Present <= 2000000",
+      "human_history_1k": "SELECT *, 0 AS Static_Value FROM v10_human_condition_milestones_reduced WHERE Date >= \"1006-01-01\""
     }
+  },
+  "posts": {
+    "create_post": "INSERT INTO post (Description, Date_Time, User_ID,Two_Columns) VALUES (:description, NOW(), :user_id, :two_columns)",
+    "add_chart": "INSERT INTO post_chart (Post_ID, Chart_ID, Custom_Description) VALUES (:post_id, (SELECT Chart_ID FROM chart WHERE Name = :chart_name), :description)",
+    "remove_chart": "DELETE FROM post_chart WHERE Post_ID = 1 AND Chart_ID = (SELECT Chart_ID FROM chart WHERE Name = :chart_name",
+    "set_columns": "UPDATE post SET Two_Columns = :two_columns WHERE Post_ID = :post_id",
+    "get_posts": "SELECT * FROM post WHERE User_ID = :user_id",
+    "get_post": "SELECT * FROM post WHERE Post_ID = :post_id",
+    "get_charts": "SELECT c.Name FROM post_chart p JOIN chart c ON p.Chart_ID = c.Chart_ID WHERE Post_ID = :post_id",
+    "delete_post": "DELETE FROM post WHERE Post_ID = post_id",
+    "delete_all_posts": "DELETE FROM post WHERE User_ID = :user_id"
+  },
+  "user": {
+    "delete_user": "DELETE FROM users WHERE id = :user_id"
+  }
 }

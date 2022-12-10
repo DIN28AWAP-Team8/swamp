@@ -118,6 +118,7 @@ footer {
   border-radius: 5px;
   justify-content: space-between;
   padding: 1rem;
+  background-color: white;
 }
 
 .mdl-content {
