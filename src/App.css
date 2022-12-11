@@ -154,3 +154,20 @@ footer {
   background-color: #59c875;
   border: #59c875 solid 1px;
 }
+
+.popup-content {
+  margin: auto;
+  background: #59c875;
+  color: white;
+  padding: 5px;
+  font-weight: bold;
+}
+.popup-arrow {
+  color: #59c875;
+}
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup="tooltip"].popup-overlay {
+  background: transparent;
+}

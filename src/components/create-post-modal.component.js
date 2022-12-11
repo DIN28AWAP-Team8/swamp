@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
 import PostsService from "../services/posts.service";
+import Popup from "reactjs-popup";
 
 export default class Modal extends React.Component {
   onClose = (e) => {
@@ -19,16 +20,23 @@ export default class Modal extends React.Component {
             className="close-btn btn btn-secondary"
             onClick={this.onClose}
           >
-            Close
+            CLOSE
           </button>
         </div>
         <div className="mdl-content">{this.props.children}</div>
-        <button
-          className="save-btn btn btn-secondary"
-          onClick={() => PostsService.createPost(1, 1)}
+        <Popup className="popup"
+          trigger={
+            <button
+              className="save-btn btn btn-secondary"
+              onClick={() => PostsService.createPost(1, 1)}
+            >
+              SAVE
+            </button>
+          }
+          position="right center"
         >
-          SAVE
-        </button>
+          <div>Post created!</div>
+        </Popup>
       </div>
     );
   }

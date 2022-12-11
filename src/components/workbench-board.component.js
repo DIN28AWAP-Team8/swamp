@@ -1,6 +1,5 @@
 import React, { Component, useState } from "react";
 import "../App.css";
-import { AiOutlinePlusCircle, AiOutlinePlusSquare } from "react-icons/ai";
 import Modal from "./create-post-modal.component";
 
 export default class Workbench extends Component {
@@ -25,12 +24,15 @@ export default class Workbench extends Component {
       <div className="container">
         <header className="jumbotron" style={{ textAlign: "center" }}>
           <h3>Create a post with your visualizations here</h3>
-          <AiOutlinePlusCircle
+          <br />
+          <button
+            className="btn btn-secondary"
             onClick={(e) => {
               this.showModal();
             }}
-            style={{ cursor: "pointer", color: "green" }}
-          />
+          >
+            CREATE
+          </button>
         </header>
 
         <Modal onClose={this.showModal} show={this.state.show}>

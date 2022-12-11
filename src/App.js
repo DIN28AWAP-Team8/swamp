@@ -20,8 +20,6 @@ import Workbench from "./components/workbench-board.component";
 
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
-
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -113,16 +111,16 @@ class App extends Component {
             <div className="navbar-nav ml-auto">
               <li>
                 {/* Add component used to create visualizations */}
-                <Link to={"/Workbench"} className="nav-link nav-ico">
-                  <AiOutlinePlusCircle style={{ color: "green" }} />
+                <Link to={"/Workbench"} className="btn btn-secondary"  title="Create a Post!">
+                  +
                 </Link>
               </li>
+              &nbsp;
               <li className="nav-item">
                 <Link to={"/profile"} className="nav-link">
                   {currentUser.username}
                 </Link>
               </li>
-
               <li className="nav-item">
                 <a
                   href="/login"
