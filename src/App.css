@@ -121,6 +121,10 @@ footer {
   background-color: white;
 }
 
+.mdl-header > label {
+  font-weight: bold;
+}
+
 .mdl-content {
   width: 75vw;
   text-align: start;

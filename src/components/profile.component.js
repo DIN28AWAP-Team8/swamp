@@ -61,7 +61,7 @@ export default class Profile extends Component {
                   <li key={index}>{role}</li>
                 ))}
             </ul>
-            <button type="button" className="btn btn-secondary" href="/users/delete/<%=data.id%>">Delete my Account</button>
+            <button type="button" className="close-btn btn btn-secondary" href="/users/delete/<%=data.id%>">Delete my Account</button>
           </div>
         ) : null}
       </div>
