@@ -1,14 +1,16 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import "../App.css";
 import { AiOutlinePlusCircle, AiOutlinePlusSquare } from "react-icons/ai";
-
 import Modal from "./create-post-modal.component";
-import createPost from "./create-post";
 
 export default class Workbench extends Component {
-  state = {
-    show: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: false,
+    };
+  }
+
   showModal = (e) => {
     this.setState({
       show: !this.state.show,
@@ -26,39 +28,42 @@ export default class Workbench extends Component {
           <AiOutlinePlusCircle
             onClick={(e) => {
               this.showModal();
-              createPost(1,1);
             }}
             style={{ cursor: "pointer", color: "green" }}
           />
         </header>
 
         <Modal onClose={this.showModal} show={this.state.show}>
-          <div className="mdl-btn-container">
-            <button
-              className="v-btn btn btn-secondary"
-              x="v1-v2"
-              onClick={null}
-            >
-              <AiOutlinePlusSquare /> V1-V2
-            </button>
-            <button className="v-btn btn btn-secondary" onClick={null}>
-              <AiOutlinePlusSquare /> V3-V4-V10
-            </button>
-            <button className="v-btn btn btn-secondary" onClick={null}>
-              <AiOutlinePlusSquare /> V5
-            </button>
-            <button className="v-btn btn btn-secondary" onClick={null}>
-              <AiOutlinePlusSquare /> V6
-            </button>
-            <button className="v-btn btn btn-secondary" onClick={null}>
-              <AiOutlinePlusSquare /> V7-V10
-            </button>
-            <button className="v-btn btn btn-secondary" onClick={null}>
-              <AiOutlinePlusSquare /> V8
-            </button>
-            <button className="v-btn btn btn-secondary" onClick={null}>
-              <AiOutlinePlusSquare /> V9
-            </button>
+          <div className="checkbox-container">
+            <div className="labl-chkbx">
+              <label htmlFor="V1V2">V1+V2</label>
+              <input type="checkbox" id="foo" name="V1V2" value="" />
+            </div>
+
+            <div className="labl-chkbx">
+              <label htmlFor="V3V4V10">V3+V4+V10</label>
+              <input type="checkbox" name="V3V4V10" value="" />
+            </div>
+            <div className="labl-chkbx">
+              <label htmlFor="V5">V5</label>
+              <input type="checkbox" name="V5" value="" />
+            </div>
+            <div className="labl-chkbx">
+              <label htmlFor="V6">V6</label>
+              <input type="checkbox" name="V6" value="" />
+            </div>
+            <div className="labl-chkbx">
+              <label htmlFor="V7V10">V7+V10</label>
+              <input type="checkbox" name="V7V10" value="" />
+            </div>
+            <div className="labl-chkbx">
+              <label htmlFor="V8">V8</label>
+              <input type="checkbox" name="V8" value="" />
+            </div>
+            <div className="labl-chkbx">
+              <label htmlFor="V9">V9</label>
+              <input type="checkbox" name="V9" value="" />
+            </div>
           </div>
         </Modal>
       </div>

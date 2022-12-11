@@ -4,6 +4,8 @@
 import React, { Component } from "react";
 
 import UserService from "../services/user.service";
+import postsService from "../services/posts.service";
+import GetAllPosts from "../services/get-all-posts";
 
 export default class BoardUser extends Component {
   constructor(props) {
@@ -39,9 +41,7 @@ export default class BoardUser extends Component {
       <div className="container">
         <header className="jumbotron">
           <h3>{this.state.content}</h3>
-          <div>
-            Here we display all the visualizations the user created
-          </div>
+          <div>Here we display all the visualizations the user created</div>
         </header>
       </div>
     );

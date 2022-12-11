@@ -40,6 +40,7 @@
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "react-validation": "^3.0.7",
+    "reactjs-popup": "^2.0.5",
     "sequelize": "^5.22.5",
     "sqlite3": "^5.1.2",
     "validator": "^13.7.0",

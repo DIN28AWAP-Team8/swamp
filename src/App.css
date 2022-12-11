@@ -127,21 +127,30 @@ footer {
   padding: 1rem;
 }
 
-.mdl-btn-container {
+.checkbox-container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
 }
 
-.mdl-btn-container > button {
-  margin: 5px 0 5px 0;
+.labl-chkbx {
+  margin: 0 5px 0 5px;
+  width: 7rem;
+  text-align: center;
+  border: 3px #6c757d solid;
+  border-radius: 5px;
+  padding: 0.2rem;
 }
 
-.v-btn:hover{
-  background-color: #59c875;
-  border: #59c875 solid 1px;
+.labl-chkbx > label {
+  font-weight: bold;
 }
 
-.close-btn:hover{
+.close-btn:hover {
   background-color: #c85959;
   border: #c85959 solid 1px;
+}
+
+.save-btn:hover {
+  background-color: #59c875;
+  border: #59c875 solid 1px;
 }
