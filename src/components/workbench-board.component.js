@@ -10,6 +10,8 @@ export default class Workbench extends Component {
     };
   }
 
+  
+
   showModal = (e) => {
     this.setState({
       show: !this.state.show,
@@ -39,32 +41,32 @@ export default class Workbench extends Component {
           <div className="checkbox-container">
             <div className="labl-chkbx">
               <label htmlFor="V1V2">V1+V2</label>
-              <input type="checkbox" id="foo" name="V1V2" value="" />
+              <input type="checkbox" id="foo" name="c" value="" />
             </div>
 
             <div className="labl-chkbx">
               <label htmlFor="V3V4V10">V3+V4+V10</label>
-              <input type="checkbox" name="V3V4V10" value="" />
+              <input type="checkbox" name="c" value="" />
             </div>
             <div className="labl-chkbx">
               <label htmlFor="V5">V5</label>
-              <input type="checkbox" name="V5" value="" />
+              <input type="checkbox" name="c" value="" />
             </div>
             <div className="labl-chkbx">
               <label htmlFor="V6">V6</label>
-              <input type="checkbox" name="V6" value="" />
+              <input type="checkbox" name="c" value="" />
             </div>
             <div className="labl-chkbx">
               <label htmlFor="V7V10">V7+V10</label>
-              <input type="checkbox" name="V7V10" value="" />
+              <input type="checkbox" name="c" value="" />
             </div>
             <div className="labl-chkbx">
               <label htmlFor="V8">V8</label>
-              <input type="checkbox" name="V8" value="" />
+              <input type="checkbox" name="c" value="" />
             </div>
             <div className="labl-chkbx">
               <label htmlFor="V9">V9</label>
-              <input type="checkbox" name="V9" value="" />
+              <input type="checkbox" name="c" value="" />
             </div>
           </div>
         </Modal>

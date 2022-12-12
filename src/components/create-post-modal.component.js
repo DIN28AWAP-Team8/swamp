@@ -1,7 +1,6 @@
-import React from "react";
+import React, { setState } from "react";
 import "../App.css";
 import PostsService from "../services/posts.service";
-import Popup from "reactjs-popup";
 import AuthService from "../services/auth.service";
 
 export default class Modal extends React.Component {
@@ -9,8 +8,15 @@ export default class Modal extends React.Component {
     super(props);
     this.state = {
       currentUser: { username: "" },
+      colNum: 0,
     };
   }
+
+  checkAddress(x) {
+    // using boolean logic : 0 is for 1 column, 1 is for two column (because table name is "two_columns")
+    this.setState({ colNum: x });
+  }
+
   toggleCheckbox(chkbxid0, chkbxid1) {
     document.getElementById(chkbxid0).checked = true;
     document.getElementById(chkbxid1).checked = false;
@@ -18,10 +24,25 @@ export default class Modal extends React.Component {
   onClose = (e) => {
     this.props.onClose && this.props.onClose(e);
   };
+
   componentDidMount() {
     const currentUser = AuthService.getCurrentUser();
     if (!currentUser) this.setState({ redirect: "/home" });
     this.setState({ currentUser: currentUser, userReady: true });
+  }
+  valthisform(id, col) {
+    var checkboxs = document.getElementsByName("c");
+    var okay = false;
+    for (var i = 0, l = checkboxs.length; i < l; i++) {
+      if (checkboxs[i].checked) {
+        okay = true;
+        break;
+      }
+    }
+    if (okay) {
+      PostsService.createPost(id, col);
+      alert("Your post has been saved!");
+    } else alert("Please check at least one checkbox!");
   }
 
   render() {
@@ -33,13 +54,16 @@ export default class Modal extends React.Component {
     return (
       <div className="mdl">
         <div className="mdl-header">
-          <h2>Your Post</h2>
+          <h2>Your Post : </h2>
           <label>
             One column :&nbsp;
             <input
               type="checkbox"
               id="chkbox1"
-              onClick={() => this.toggleCheckbox("chkbox1", "chkbox2")}
+              onClick={() => {
+                this.toggleCheckbox("chkbox1", "chkbox2");
+                this.checkAddress(0);
+              }}
               defaultChecked
             />
           </label>
@@ -48,7 +72,10 @@ export default class Modal extends React.Component {
             <input
               type="checkbox"
               id="chkbox2"
-              onClick={() => this.toggleCheckbox("chkbox2", "chkbox1")}
+              onClick={() => {
+                this.toggleCheckbox("chkbox2", "chkbox1");
+                this.checkAddress(1);
+              }}
             />
           </label>
           <button
@@ -62,16 +89,13 @@ export default class Modal extends React.Component {
 
         <button
           className="save-btn btn btn-secondary"
-          onClick={() => PostsService.createPost(currentUser.id, 1)}
+          onClick={() => {
+            this.valthisform(currentUser.id, this.state.colNum);
+          }}
           name="trigger"
         >
           SAVE
         </button>
-
-        {/* ------ POPUP is on stand-by because it interfers with the createPost function ------ */}
-        {/* <Popup className="popup" trigger={null} position="right center">
-          <div>Post created!</div>
-        </Popup> */}
       </div>
     );
   }

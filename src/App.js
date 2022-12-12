@@ -111,7 +111,7 @@ class App extends Component {
             <div className="navbar-nav ml-auto">
               <li>
                 {/* Add component used to create visualizations */}
-                <Link to={"/Workbench"} className="btn btn-secondary"  title="Create a Post!">
+                <Link to={"/Workbench"} className="btn btn-secondary"  title="G6 : Create a Post!">
                   +
                 </Link>
               </li>
