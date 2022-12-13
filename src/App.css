@@ -175,3 +175,11 @@ footer {
 [data-popup="tooltip"].popup-overlay {
   background: transparent;
 }
+
+/* ----------------------- N3 ---------------------------- */
+
+.posts {
+  height: 46vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
