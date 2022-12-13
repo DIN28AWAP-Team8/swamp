@@ -7,7 +7,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
-import logOut from "../App";
 
 export default class Profile extends Component {
   constructor(props) {
@@ -57,6 +56,21 @@ export default class Profile extends Component {
       });
   }
 
+  deleteUserPosts(x) {
+    axios
+      .delete(process.env.REACT_APP_API_ADDRESS + "/posts/delete_all_posts", {
+        params: {
+          user_id: x,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
     if (this.state.redirect) {
       return <Navigate to={this.state.redirect} />;
@@ -97,6 +111,7 @@ export default class Profile extends Component {
               type="button"
               className="close-btn btn btn-secondary"
               onClick={() => {
+                this.deleteUserPosts(currentUser.id);
                 this.deleteAcc(currentUser.id);
               }}
             >
