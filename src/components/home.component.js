@@ -51,9 +51,11 @@ export default class Home extends Component {
         params: {
           post_id: x,
         },
+        
       })
       .then((response) => {
         console.log(response);
+        window.location.reload(true);
       })
       .catch(function (error) {
         console.log(error);
