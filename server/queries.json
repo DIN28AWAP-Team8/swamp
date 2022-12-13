@@ -65,7 +65,7 @@
     "get_posts": "SELECT * FROM post WHERE User_ID = :user_id",
     "get_post": "SELECT * FROM post WHERE Post_ID = :post_id",
     "get_charts": "SELECT c.Name FROM post_chart p JOIN chart c ON p.Chart_ID = c.Chart_ID WHERE Post_ID = :post_id",
-    "delete_post": "DELETE FROM post WHERE Post_ID = post_id",
+    "delete_post": "DELETE FROM post WHERE Post_ID = :post_id",
     "delete_all_posts": "DELETE FROM post WHERE User_ID = :user_id"
   },
   "user": {
