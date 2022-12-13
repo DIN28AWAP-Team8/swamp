@@ -48,7 +48,7 @@ export default class BoardUser extends Component {
         },
       })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         this.setState({ posts: response.data });
       })
       .catch(function (error) {
@@ -63,7 +63,7 @@ export default class BoardUser extends Component {
       <div className="container">
         <header className="jumbotron">
           <h3>{this.state.content}</h3>
-          <div>Here we display all the visualizations the user created</div>
+          <div>Here we display all the visualizations you created</div>
         </header>
 
         <div className="posts">
