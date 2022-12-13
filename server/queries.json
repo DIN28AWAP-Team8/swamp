@@ -70,5 +70,6 @@
   },
   "user": {
     "delete_user": "DELETE FROM users WHERE id = :user_id"
+
   }
 }
