@@ -436,6 +436,23 @@ app.get("/posts/get_charts", async function (req, res) {
   }
 });
 
+app.get("/posts", async function (req, res) {
+  try {
+    const [result] = await db.sequelize.query(
+      prepared_queries.posts.get_all_posts,
+      {
+        replacements: {
+          post_id: req.query.post_id,
+        },
+      }
+    );
+    if (!result) result = [];
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 // app.post("/posts/set_visibility", async function (req, res) {
 //   try {
 //     const [result,] = await db.sequelize.query(prepared_queries.posts.set_visibility, {
