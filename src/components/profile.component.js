@@ -4,25 +4,57 @@
 // If the user is not logged in, redirect to /home page
 
 import React, { Component } from "react";
+import axios from "axios";
 import { Navigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
+import logOut from "../App";
 
 export default class Profile extends Component {
   constructor(props) {
     super(props);
+    this.logOut = this.logOut.bind(this);
 
     this.state = {
+      currentUser: { username: "" },
       redirect: null,
       userReady: false,
-      currentUser: { username: "" },
+      showModeratorBoard: false,
+      showAdminBoard: false,
+      currentUser: undefined,
     };
   }
 
   componentDidMount() {
     const currentUser = AuthService.getCurrentUser();
-
     if (!currentUser) this.setState({ redirect: "/home" });
     this.setState({ currentUser: currentUser, userReady: true });
+  }
+
+  logOut() {
+    AuthService.logout();
+    this.setState({
+      showModeratorBoard: false,
+      showAdminBoard: false,
+      currentUser: undefined,
+    });
+  }
+
+  deleteAcc(x) {
+    axios
+      .delete(process.env.REACT_APP_API_ADDRESS + "/users/delete_user", {
+        params: {
+          user_id: x,
+        },
+      })
+      .then((response) => {
+        alert("Your account has been successfully deleted");
+        // this.setState({ redirect: "/register" });
+        this.logOut();
+        window.location.reload(true);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   render() {
@@ -30,7 +62,7 @@ export default class Profile extends Component {
       return <Navigate to={this.state.redirect} />;
     }
 
-    const { currentUser } = this.state;
+    const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
 
     return (
       <div className="container">
@@ -61,7 +93,15 @@ export default class Profile extends Component {
                   <li key={index}>{role}</li>
                 ))}
             </ul>
-            <button type="button" className="close-btn btn btn-secondary" href="/users/delete/<%=data.id%>">Delete my Account</button>
+            <button
+              type="button"
+              className="close-btn btn btn-secondary"
+              onClick={() => {
+                this.deleteAcc(currentUser.id);
+              }}
+            >
+              Delete my Account
+            </button>
           </div>
         ) : null}
       </div>

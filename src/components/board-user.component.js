@@ -85,7 +85,6 @@ export default class BoardUser extends Component {
           ))}
         </div>
       </div>
-      
     );
   }
 }
