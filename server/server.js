@@ -4,10 +4,10 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081",
+  origin: process.env.CLIENT_URL || "http://localhost:8081",
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json());
 
@@ -439,12 +439,7 @@ app.get("/posts/get_charts", async function (req, res) {
 app.get("/posts", async function (req, res) {
   try {
     const [result] = await db.sequelize.query(
-      prepared_queries.posts.get_all_posts,
-      {
-        replacements: {
-          post_id: req.query.post_id,
-        },
-      }
+      prepared_queries.posts.get_all_posts
     );
     if (!result) result = [];
     res.status(200).json(result);
