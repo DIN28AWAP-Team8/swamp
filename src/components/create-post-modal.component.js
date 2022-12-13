@@ -41,8 +41,8 @@ export default class Modal extends React.Component {
     }
     if (okay) {
       PostsService.createPost(id, col);
-      alert("Your post has been saved!");
-    } else alert("Please check at least one checkbox!");
+      alert("✅ Your post has been saved, check it in N3:User");
+    } else alert("⛔ Please check at least one checkbox!");
   }
 
   render() {
