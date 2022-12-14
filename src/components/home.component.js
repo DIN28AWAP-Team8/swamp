@@ -40,21 +40,21 @@ export default class Home extends Component {
       });
   }
 
-  deleteUserPost(x) {
-    axios
-      .delete(process.env.REACT_APP_API_ADDRESS + "/posts/delete_post", {
-        params: {
-          post_id: x,
-        },
-      })
-      .then((response) => {
-        console.log(response);
-        window.location.reload(true);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+  // deleteUserPost(x) {
+  //   axios
+  //     .delete(process.env.REACT_APP_API_ADDRESS + "/posts/delete_post", {
+  //       params: {
+  //         post_id: x,
+  //       },
+  //     })
+  //     .then((response) => {
+  //       console.log(response);
+  //       window.location.reload(true);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }
 
   render() {
     return (
@@ -79,7 +79,7 @@ export default class Home extends Component {
                   <th scope="col">{data.User_ID} </th>
                   <th scope="row">{data.Post_ID}</th>
                   <th scope="row">{data.Date_Time}</th>
-                  <th>
+                  {/* <th>
                     <button
                       type="button"
                       className="close-btn btn btn-secondary"
@@ -89,7 +89,7 @@ export default class Home extends Component {
                     >
                       Delete
                     </button>
-                  </th>
+                  </th> */}
                 </tr>
               </tbody>
             </table>

@@ -56,6 +56,22 @@ export default class BoardUser extends Component {
       });
   }
 
+  deleteUserPost(x) {
+    axios
+      .delete(process.env.REACT_APP_API_ADDRESS + "/posts/delete_post", {
+        params: {
+          post_id: x,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        window.location.reload(true);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
     const { currentUser } = this.state;
 
@@ -79,6 +95,17 @@ export default class BoardUser extends Component {
                 <tr>
                   <th scope="row">{data.Post_ID}</th>
                   <th scope="row">{data.Date_Time}</th>
+                  <th>
+                    <button
+                      type="button"
+                      className="close-btn btn btn-secondary"
+                      onClick={() => {
+                        this.deleteUserPost(data.Post_ID);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </th>
                 </tr>
               </tbody>
             </table>
