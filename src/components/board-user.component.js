@@ -68,7 +68,7 @@ export default class BoardUser extends Component {
 
         <div className="posts">
           {this.state.posts.map((data) => (
-            <table className="table table-dark">
+            <table className="table table-dark" key={data.Post_ID}>
               <thead>
                 <tr>
                   <th scope="col">Post number : </th>

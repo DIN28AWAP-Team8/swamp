@@ -30,6 +30,7 @@ export default class Modal extends React.Component {
     if (!currentUser) this.setState({ redirect: "/home" });
     this.setState({ currentUser: currentUser, userReady: true });
   }
+
   valthisform(id, col) {
     var checkboxs = document.getElementsByName("c");
     var okay = false;
@@ -43,6 +44,23 @@ export default class Modal extends React.Component {
       PostsService.createPost(id, col);
       alert("✅ Your post has been saved, check it in N3:User");
     } else alert("⛔ Please check at least one checkbox!");
+  }
+
+  addChart(x, y) {
+    axios
+      .get(process.env.REACT_APP_API_ADDRESS + "/posts/add_chart", {
+        params: {
+          post_id: x,
+          chart_name: y,
+          description: "",
+        },
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   render() {
