@@ -12,7 +12,7 @@ class PostsService {
       })
       .then((response) => {
         response.status;
-        return response.data;
+        console.log(response.data);
       })
       .catch((err) => console.warn(err));
   }

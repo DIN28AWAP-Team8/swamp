@@ -32,7 +32,7 @@ export default class Home extends Component {
     axios
       .get(process.env.REACT_APP_API_ADDRESS + "/posts")
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         this.setState({ posts: response.data });
       })
       .catch(function (error) {
